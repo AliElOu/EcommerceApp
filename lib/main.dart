@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
+import 'package:flutter_bootcamp/screens/Cart/cart_page.dart';
 import 'package:flutter_bootcamp/screens/Home/home_screen.dart';
 import 'package:get/get.dart';
 import 'screens/Auth/Signin_screen.dart';
@@ -22,13 +23,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      initialRoute: "Home",
+      initialRoute: "home",
       routes: {
            "onboarding": (context) => const Onboardingscreen(),
            "login": (context) => const SigninScreen(),
            "register": (context) => const SignupScreen(),
-           "Home": (context) => const Homepage(),
+           "home": (context) => const Homepage(),
            "product": (context) => const ProductPage(),
+           "cart": (context) => const CartPage(),
       },
     );
   }

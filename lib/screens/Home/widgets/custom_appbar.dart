@@ -35,9 +35,9 @@ class customappbar extends StatelessWidget {
             )
           ),
           const SizedBox(width: 10),
-          CustomIconButton(iconPath: "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Cart%20Icon.svg",),
+          CustomIconButton(iconPath: "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Cart%20Icon.svg",onPressMethod: () => Navigator.pushNamed(context, "cart"),),
           const SizedBox(width: 7),
-          CustomIconButton(iconPath: "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Bell.svg")
+          CustomIconButton(iconPath: "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Bell.svg",onPressMethod:(){})
         ],
       ),
     );

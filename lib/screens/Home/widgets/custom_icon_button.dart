@@ -3,8 +3,10 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomIconButton extends StatelessWidget {
     String iconPath;
+    VoidCallback onPressMethod; 
    CustomIconButton({
     required this.iconPath,
+    required this.onPressMethod,
     super.key,
   });
 
@@ -20,7 +22,9 @@ class CustomIconButton extends StatelessWidget {
           splashColor:Colors.transparent ,
           hoverColor: Colors.transparent,
           padding: const EdgeInsets.all(10),
-          onPressed: (){},
+          onPressed: (){
+            onPressMethod();
+          },
           icon: SvgPicture.network(iconPath),
           color: Colors.grey,
           ),

@@ -31,7 +31,7 @@ class Homepage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar:  customNavbar(CurrentPage: MenuState.home),
+      bottomNavigationBar:  const customNavbar(CurrentPage: MenuState.home),
     );
   }
 }
