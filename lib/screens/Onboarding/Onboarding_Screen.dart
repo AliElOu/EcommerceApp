@@ -48,8 +48,8 @@ class _Onboardingscreenstate extends State<Onboardingscreen> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               'Welcome to ',
                               style: TextStyle(
                                 color: Colors.grey,
@@ -57,7 +57,7 @@ class _Onboardingscreenstate extends State<Onboardingscreen> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            const Text(
+                            Text(
                               'Tokoto',
                               style: TextStyle(
                                 color: Color(0xff9A9A9A),
@@ -65,7 +65,7 @@ class _Onboardingscreenstate extends State<Onboardingscreen> {
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
-                            const Text(
+                            Text(
                               ', Let\'s shop! ',
                               style: TextStyle(
                                 color: Colors.grey,
@@ -79,9 +79,9 @@ class _Onboardingscreenstate extends State<Onboardingscreen> {
                         Container(
                           height: 300,
                           width: 300,
+                          color: const Color.fromARGB(0, 160, 132, 132),
                           child: Image.network(
                               'https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/main/assets/images/splash_1.png'),
-                          color: const Color.fromARGB(0, 160, 132, 132),
                         ),
                       ]),
                     ),
@@ -102,8 +102,8 @@ class _Onboardingscreenstate extends State<Onboardingscreen> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               'We show the easy way to shop \n just stay at home with us',
                               style: TextStyle(
                                 color: Colors.grey,
@@ -119,9 +119,9 @@ class _Onboardingscreenstate extends State<Onboardingscreen> {
                         Container(
                           height: 300,
                           width: 300,
+                          color: const Color.fromARGB(0, 160, 132, 132),
                           child: Image.network(
                               'https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/main/assets/images/splash_2.png'),
-                          color: const Color.fromARGB(0, 160, 132, 132),
                         ),
                       ]),
                     ),

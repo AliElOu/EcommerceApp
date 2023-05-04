@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
+import 'package:get/get.dart';
 
 import '../../../models/cart_model.dart';
 
@@ -14,7 +16,13 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(Icons.arrow_back_ios_new_rounded,color: Colors.black.withOpacity(.6),size: 18,),
+          GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: Colors.black.withOpacity(.6),
+              size: 18,),
+              ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -25,12 +33,16 @@ class CustomAppBar extends StatelessWidget {
                 color: Colors.black.withOpacity(.7),
                 fontWeight: FontWeight.w600
               ),),
-              Text("${cartList.length} items",style: TextStyle(
-                fontSize: 15,
-                fontFamily: "Kanit",
-                color: Colors.black.withOpacity(.4),
-                fontWeight: FontWeight.w600
-              ),)
+              GetBuilder<ProductPageController>(
+                builder: (controller) {
+                  return Text("${cartList.length} items",style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: "Kanit",
+                    color: Colors.black.withOpacity(.4),
+                    fontWeight: FontWeight.w600
+                  ),);
+                }
+              )
             ],
           ),
            const Icon(Icons.arrow_back_ios_new_outlined,color: Colors.transparent,)

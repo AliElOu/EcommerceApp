@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class listHeader extends StatelessWidget {
   String title;
-   listHeader({
+  listHeader({
     required this.title,
     super.key,
   });
@@ -16,19 +16,23 @@ class listHeader extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Text(title,style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-              fontFamily: "Kanit",
-            ),),
-            GestureDetector(
-              onTap: () {},
-              child: const Text("See more",
-              style: TextStyle(
-                color: Color.fromARGB(146, 158, 158, 158),
-                fontSize: 13.5,
+            Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
                 fontFamily: "Kanit",
               ),
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: const Text(
+                "See more",
+                style: TextStyle(
+                  color: Color.fromARGB(146, 158, 158, 158),
+                  fontSize: 13.5,
+                  fontFamily: "Kanit",
+                ),
               ),
             )
           ],

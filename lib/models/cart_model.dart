@@ -8,6 +8,6 @@ class CartModel {
 }
 
 List<CartModel> cartList = [
-  CartModel(product: productsList[0],quantity: 2),
-  CartModel(product: productsList[1],quantity: 1),
+  // CartModel(product: productsList[0],quantity: 2),
+  // CartModel(product: productsList[1],quantity: 1),
 ];

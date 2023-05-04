@@ -3,8 +3,8 @@ import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:flutter_bootcamp/screens/Cart/cart_page.dart';
 import 'package:flutter_bootcamp/screens/Home/home_screen.dart';
 import 'package:get/get.dart';
-import 'screens/Auth/Signin_screen.dart';
-import 'screens/Auth/Signup_screen.dart';
+import 'screens/Auth/signin_screen.dart';
+import 'screens/Auth/signup_screen.dart';
 import 'screens/Onboarding/Onboarding_Screen.dart';
 import 'screens/ProductPage/product_page.dart';
 

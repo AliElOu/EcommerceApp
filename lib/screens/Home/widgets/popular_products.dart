@@ -14,22 +14,18 @@ class PopularProducts extends StatelessWidget {
       children: [
         listHeader(title: "Popular Product"),
         SizedBox(
-          width: double.infinity,
-          height: 220,
-          child: ListView.builder(
-            itemCount: productsList.length,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            physics:const  BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context,index){
-              return ProductsList(Products: productsList[index]);
-            },
-          )
-        ),
-        
+            width: double.infinity,
+            height: 220,
+            child: ListView.builder(
+              itemCount: productsList.length,
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return ProductsList(Products: productsList[index]);
+              },
+            )),
       ],
-      
     );
   }
 }
-

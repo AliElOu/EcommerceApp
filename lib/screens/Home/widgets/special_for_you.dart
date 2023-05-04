@@ -14,16 +14,15 @@ class SpecialForYou extends StatelessWidget {
           width: double.infinity,
           height: 100,
           child: ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            itemCount: specialList.length,
-            itemBuilder: (context,index){
-            return SpecialForYouList(offer: specialList[index]);
-          }),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: specialList.length,
+              itemBuilder: (context, index) {
+                return SpecialForYouList(offer: specialList[index]);
+              }),
         )
       ],
     );
   }
 }
-

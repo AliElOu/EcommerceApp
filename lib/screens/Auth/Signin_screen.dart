@@ -1,8 +1,12 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 var formKey = GlobalKey<FormState>();
 bool ischecked = false;
 bool isvisible = true;
+
 class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
 
@@ -14,22 +18,23 @@ class SigninScreen extends StatelessWidget {
           key: formKey,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(40),
+              padding: const EdgeInsets.all(40),
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                        onTap:() {
+                        onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back_ios_new_rounded,
                           size: 20,
                           color: Colors.grey,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Sign In',
                         style: TextStyle(
                           fontSize: 20,
@@ -37,18 +42,17 @@ class SigninScreen extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.arrow_back_ios_new_rounded,
                         size: 20,
                         color: Colors.white,
                       ),
                     ],
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 58,
                   ),
-                  Text(
+                  const Text(
                     'Welcome back',
                     style: TextStyle(
                       fontSize: 32,
@@ -56,10 +60,10 @@ class SigninScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 13,
                   ),
-                  Text(
+                  const Text(
                     'Sign in with your mail and password \n or continue with social media',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -72,39 +76,39 @@ class SigninScreen extends StatelessWidget {
                       height: 1.42,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 80,
                   ),
                   TextFormField(
-                    validator:(value) {
-                      final bool emailValid = 
-    RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-      .hasMatch(value!);
-       if(value.isEmpty){
-        return "*Champ Obligatoire!";
-      }
-      if(!emailValid){
-        return "*Email non valid!";
-      }
-     
+                    validator: (value) {
+                      final bool emailValid = RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(value!);
+                      if (value.isEmpty) {
+                        return "*Champ Obligatoire!";
+                      }
+                      if (!emailValid) {
+                        return "*Email non valid!";
+                      }
+                      return null;
                     },
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 28, vertical: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 28, vertical: 20),
                       labelText: 'Email',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
                       ),
                       hintText: "Enter your email",
-                      labelStyle: TextStyle(
+                      labelStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
                       ),
-                      suffixIcon: Padding(
+                      suffixIcon: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 22),
                         child: Icon(Icons.mail_outline),
                       ),
@@ -114,19 +118,19 @@ class SigninScreen extends StatelessWidget {
                     ),
                     autofocus: true,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  passwordvisibility(),
-                  SizedBox(
+                  const passwordvisibility(),
+                  const SizedBox(
                     height: 28,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
-                        children: [
-                       ChangeCheckBox(),
+                        children: const [
+                          ChangeCheckBox(),
                           Text(
                             'Remember me',
                             style: TextStyle(
@@ -138,7 +142,7 @@ class SigninScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Text(
+                      const Text(
                         "Forgot password",
                         style: TextStyle(
                           fontFamily: "os",
@@ -149,14 +153,14 @@ class SigninScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 37,
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
-                      foregroundColor: Color.fromARGB(209, 255, 255, 255),
-                      backgroundColor: Color(0xffF77546),
-                      padding: EdgeInsets.symmetric(
+                      foregroundColor: const Color.fromARGB(209, 255, 255, 255),
+                      backgroundColor: const Color(0xffF77546),
+                      padding: const EdgeInsets.symmetric(
                         vertical: 25,
                         horizontal: 115,
                       ),
@@ -164,8 +168,8 @@ class SigninScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(22),
                       ),
                     ),
-                    onPressed:() => login(context),
-                    child: Text(
+                    onPressed: () => login(context),
+                    child: const Text(
                       'Continue',
                       style: TextStyle(
                         fontSize: 16,
@@ -173,57 +177,57 @@ class SigninScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 63,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xffEEEFF1),
                           shape: BoxShape.circle,
                         ),
                         width: 37,
                         height: 37,
+                        padding: const EdgeInsets.all(11),
                         child: SvgPicture.asset("assets/icons/google.svg"),
-                        padding: EdgeInsets.all(11),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xffEEEFF1),
                           shape: BoxShape.circle,
                         ),
                         width: 37,
                         height: 37,
+                        padding: const EdgeInsets.all(11),
                         child: SvgPicture.asset("assets/icons/facebook.svg"),
-                        padding: EdgeInsets.all(11),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xffEEEFF1),
                           shape: BoxShape.circle,
                         ),
                         width: 37,
                         height: 37,
+                        padding: const EdgeInsets.all(11),
                         child: SvgPicture.asset("assets/icons/twitter.svg"),
-                        padding: EdgeInsets.all(11),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 22,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'D\'ont have an account?',
                         style: TextStyle(
                           fontFamily: 'op',
@@ -236,7 +240,7 @@ class SigninScreen extends StatelessWidget {
                         onTap: () {
                           Navigator.pushNamed(context, 'register');
                         },
-                        child: Text(
+                        child: const Text(
                           ' Sign Up',
                           style: TextStyle(
                             fontFamily: 'op',
@@ -257,8 +261,6 @@ class SigninScreen extends StatelessWidget {
     );
   }
 
-  
-
   void login(context) {
     if (formKey.currentState!.validate()) {
       Navigator.pushNamedAndRemoveUntil(context, "Home", (route) => false);
@@ -277,16 +279,17 @@ class _ChangeCheckBoxState extends State<ChangeCheckBox> {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
-                            value: ischecked,
-                            onChanged: chang,
-                          );
+      value: ischecked,
+      onChanged: chang,
+    );
   }
+
   void chang(bool? a) {
     ischecked = a!;
     setState(() {});
-    print(ischecked);
   }
 }
+
 class passwordvisibility extends StatefulWidget {
   const passwordvisibility({super.key});
 
@@ -297,52 +300,48 @@ class passwordvisibility extends StatefulWidget {
 class _passwordvisiblityState extends State<passwordvisibility> {
   @override
   Widget build(BuildContext context) {
-    return  TextFormField(
-                    validator: (value) {
-                    
-                                 if(value!.isEmpty){
-                                  return "*Champ Obligatoire!";
-                                       }
-                                 },
-                    obscureText: isvisible,
-                    keyboardType: TextInputType.visiblePassword,
-
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 28,
-                        vertical: 20,
-                      ),
-                      hintText: 'Enter your password',
-                      labelText: 'Password',
-                      labelStyle: TextStyle(                  
-                        fontFamily: 'os',
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      hintStyle: TextStyle(
-                        fontFamily: 'os',
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      suffixIcon: Padding(
-                        child: IconButton(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent, 
-                          hoverColor: Colors.transparent, 
-                          onPressed: (){
-                          isvisible = !isvisible;
-                          setState(() {
-                            
-                          });
-                        },
-                         icon: Icon( isvisible ? Icons.visibility : Icons.visibility_off)),
-                        padding: EdgeInsets.symmetric(horizontal: 13),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                    ),
-                  )
-    ;
+    return TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "*Champ Obligatoire!";
+        }
+        return null;
+      },
+      obscureText: isvisible,
+      keyboardType: TextInputType.visiblePassword,
+      decoration: InputDecoration(
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 28,
+          vertical: 20,
+        ),
+        hintText: 'Enter your password',
+        labelText: 'Password',
+        labelStyle: const TextStyle(
+          fontFamily: 'os',
+          fontSize: 17,
+          fontWeight: FontWeight.w500,
+        ),
+        hintStyle: const TextStyle(
+          fontFamily: 'os',
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 13),
+          child: IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              onPressed: () {
+                isvisible = !isvisible;
+                setState(() {});
+              },
+              icon: Icon(isvisible ? Icons.visibility : Icons.visibility_off)),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(40),
+        ),
+      ),
+    );
   }
 }

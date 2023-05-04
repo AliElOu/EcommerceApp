@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 var kk = GlobalKey<FormState>();
 final passcontroller = TextEditingController();
 final repasscontroller = TextEditingController();
@@ -16,22 +17,23 @@ class SignupScreen extends StatelessWidget {
           key: kk,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.all(35),
+              padding: const EdgeInsets.all(35),
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back_ios_new_rounded,
                           size: 17,
                           color: Colors.grey,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Sign Up',
                         style: TextStyle(
                           fontSize: 19,
@@ -40,18 +42,17 @@ class SignupScreen extends StatelessWidget {
                           color: Colors.grey,
                         ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.arrow_back_ios_new_rounded,
                         size: 20,
                         color: Colors.white,
                       ),
                     ],
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
                   Container(
                     height: 70,
                   ),
-                  Text(
+                  const Text(
                     'Register Account',
                     style: TextStyle(
                       fontSize: 32,
@@ -59,10 +60,10 @@ class SignupScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                  Text(
+                  const Text(
                     'Complete your details or continue \n with social media',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -72,38 +73,39 @@ class SignupScreen extends StatelessWidget {
                       height: 1.44,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 38,
                   ),
                   TextFormField(
                     controller: emailcontroller,
-                    validator:(value) {
-                      final bool emailValid = 
-    RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-      .hasMatch(value!);
-       if(value.isEmpty){
-        return "*Champ Obligatoire!";
-      }
-      if(!emailValid){
-        return "*Email non valid!";
-      }
+                    validator: (value) {
+                      final bool emailValid = RegExp(
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(value!);
+                      if (value.isEmpty) {
+                        return "*Champ Obligatoire!";
+                      }
+                      if (!emailValid) {
+                        return "*Email non valid!";
+                      }
+                      return null;
                     },
                     decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 28, vertical: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 28, vertical: 20),
                       labelText: 'Email',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
                       ),
                       hintText: "Enter your email",
-                      labelStyle: TextStyle(
+                      labelStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
                       ),
-                      suffixIcon: Padding(
+                      suffixIcon: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 22),
                         child: Icon(Icons.mail_outline),
                       ),
@@ -113,73 +115,74 @@ class SignupScreen extends StatelessWidget {
                     ),
                     autofocus: true,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   TextFormField(
                     controller: passcontroller,
                     validator: (value) {
-                    
-                                if(value!.isEmpty){
-                                  return "*Champ Obligatoire!";
-                                    }
+                      if (value!.isEmpty) {
+                        return "*Champ Obligatoire!";
+                      }
+                      return null;
                     },
                     obscureText: true,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
+                      contentPadding: const EdgeInsets.symmetric(
                         horizontal: 28,
                         vertical: 20,
                       ),
                       hintText: 'Enter your password',
                       labelText: 'Password',
-                      labelStyle: TextStyle(
+                      labelStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
                       ),
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
                       ),
-                      suffixIcon: Padding(
-                        child: Icon(Icons.lock_outline),
+                      suffixIcon: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 22),
+                        child: Icon(Icons.lock_outline),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(40),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   TextFormField(
                     controller: repasscontroller,
                     validator: (value) {
-                      if(value!.isEmpty){
+                      if (value!.isEmpty) {
                         return "*Champ Obligatoire!";
-                            }
-                      if(repasscontroller.text != passcontroller.text){
+                      }
+                      if (repasscontroller.text != passcontroller.text) {
                         return "*the confirmation of password is non correct!";
                       }
+                      return null;
                     },
                     obscureText: true,
                     decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 28, vertical: 20),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 28, vertical: 20),
                       hintText: 'Re-enter your password',
                       labelText: 'Confirm Password',
-                      suffixIcon: Padding(
-                        child: Icon(Icons.lock_outline),
+                      suffixIcon: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 22),
+                        child: Icon(Icons.lock_outline),
                       ),
-                      labelStyle: TextStyle(
+                      labelStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
                       ),
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         fontFamily: 'os',
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -188,14 +191,14 @@ class SignupScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
-                      foregroundColor: Color.fromARGB(209, 255, 255, 255),
-                      backgroundColor: Color(0xffF77546),
-                      padding: EdgeInsets.symmetric(
+                      foregroundColor: const Color.fromARGB(209, 255, 255, 255),
+                      backgroundColor: const Color(0xffF77546),
+                      padding: const EdgeInsets.symmetric(
                         vertical: 25,
                         horizontal: 115,
                       ),
@@ -204,7 +207,7 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: register,
-                    child: Text(
+                    child: const Text(
                       'Continue',
                       style: TextStyle(
                         fontSize: 16,
@@ -212,54 +215,54 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 60,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xffEEEFF1),
                           shape: BoxShape.circle,
                         ),
                         width: 37,
                         height: 37,
+                        padding: const EdgeInsets.all(11),
                         child: SvgPicture.asset("/icons/google.svg"),
-                        padding: EdgeInsets.all(11),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xffEEEFF1),
                           shape: BoxShape.circle,
                         ),
                         width: 37,
                         height: 37,
+                        padding: const EdgeInsets.all(11),
                         child: SvgPicture.asset("icons/facebook.svg"),
-                        padding: EdgeInsets.all(11),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xffEEEFF1),
                           shape: BoxShape.circle,
                         ),
                         width: 37,
                         height: 37,
+                        padding: const EdgeInsets.all(11),
                         child: SvgPicture.asset("icons/twitter.svg"),
-                        padding: EdgeInsets.all(11),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                  Text(
+                  const Text(
                     'By continuing you confirm that you agree \n with our Term and condition',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -279,8 +282,6 @@ class SignupScreen extends StatelessWidget {
   }
 
   void register() {
-    if(kk.currentState!.validate()){
-      print("ok!!");
-    }
+    if (kk.currentState!.validate()) {}
   }
 }

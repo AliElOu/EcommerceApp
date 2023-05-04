@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../models/cart_model.dart';
 import '../models/products_model.dart';
 
 class ProductPageController extends GetxController{
@@ -44,6 +46,20 @@ class ProductPageController extends GetxController{
 
   void changeSelectedImage(int index){
     selectedImage = index;
+    update();
+  }
+
+  void addToCart(ProductsModel products,bool isAlready,context) {
+    
+    if(selectedQuantity != 0 && !isAlready){
+      cartList.add(CartModel(product: products,quantity: selectedQuantity));
+      update();
+      Navigator.pop(context);
+    }
+  }
+
+  void removeFromCart(CartModel cl) {
+    cartList.remove(cl);
     update();
   }
 }

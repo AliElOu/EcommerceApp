@@ -15,50 +15,56 @@ class expandedTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ProductPageController productController = Get.find<ProductPageController>();
-    
-    if(products.description.length >= 150){
+
+    if (products.description.length >= 300) {
       productController.isExpandable = true;
-    }else{
+    } else {
       productController.isExpandable = false;
     }
     return Container(
       width: double.maxFinite,
       padding: const EdgeInsets.only(right: 63),
-      child: GetBuilder<ProductPageController>(
-        builder: (controller) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              productController.isExpandable ? Text(controller.isExpanded  ? products.description : "${products.description.substring(0,150)} ...",style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontFamily: "os",
-                    fontWeight: FontWeight.bold
-                  ),)
-                  : Text(products.description,style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontFamily: "os",
-                    fontWeight: FontWeight.bold
-                  ),),             
-             SizedBox(height: 8),
-             if(productController.isExpandable)
-             GestureDetector(
-              onTap: (){
-                productController.toggleTextExpandation();
-              },
-               child: Text("See ${productController.isExpanded ? "less Details <" : "more Details >"}",style: TextStyle(
-                     color: Color(0xffF77547),
-                     fontSize: 14,
-                     fontFamily: "os",
-                     fontWeight: FontWeight.bold
-                   ),),
-             ),
-            ],
-          );
-        }
-      ),
+      child: GetBuilder<ProductPageController>(builder: (controller) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            productController.isExpandable
+                ? Text(
+                    controller.isExpanded
+                        ? products.description
+                        : "${products.description.substring(0, 300)} ...",
+                    style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                        fontFamily: "os",
+                        fontWeight: FontWeight.bold),
+                  )
+                : Text(
+                    products.description,
+                    style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                        fontFamily: "os",
+                        fontWeight: FontWeight.bold),
+                  ),
+            const SizedBox(height: 8),
+            if (productController.isExpandable)
+              GestureDetector(
+                onTap: () {
+                  productController.toggleTextExpandation();
+                },
+                child: Text(
+                  "See ${productController.isExpanded ? "less Details <" : "more Details >"}",
+                  style: const TextStyle(
+                      color: Color(0xffF77547),
+                      fontSize: 14,
+                      fontFamily: "os",
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+          ],
+        );
+      }),
     );
   }
-  
 }

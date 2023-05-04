@@ -7,7 +7,6 @@ import "widgets/offers.dart";
 import "widgets/popular_products.dart";
 import "widgets/special_for_you.dart";
 
-
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
   @override
@@ -18,20 +17,20 @@ class Homepage extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: const [
-               customappbar(),
-               SizedBox(height: 8),
-               Cashback(),
-               SizedBox(height: 25),
-               Categories(),
-               SizedBox(height: 5),
-               SpecialForYou(),
-               SizedBox(height: 22),
-               PopularProducts(),
+              Customappbar(),
+              SizedBox(height: 8),
+              Cashback(),
+              SizedBox(height: 25),
+              Categories(),
+              SizedBox(height: 5),
+              SpecialForYou(),
+              SizedBox(height: 22),
+              PopularProducts(),
             ],
           ),
         ),
       ),
-      bottomNavigationBar:  const customNavbar(CurrentPage: MenuState.home),
+      bottomNavigationBar: const customNavbar(CurrentPage: MenuState.home),
     );
   }
 }
