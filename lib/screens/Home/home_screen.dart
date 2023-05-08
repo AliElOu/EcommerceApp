@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_bootcamp/enums/menu_state.dart";
+import "home_test.dart";
 import "widgets/categories.dart";
 import "widgets/custom_appbar.dart";
 import "widgets/custom_navbar.dart";
@@ -26,6 +27,7 @@ class Homepage extends StatelessWidget {
               SpecialForYou(),
               SizedBox(height: 22),
               PopularProducts(),
+              HomeTest(),
             ],
           ),
         ),

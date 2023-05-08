@@ -263,7 +263,7 @@ class SigninScreen extends StatelessWidget {
 
   void login(context) {
     if (formKey.currentState!.validate()) {
-      Navigator.pushNamedAndRemoveUntil(context, "Home", (route) => false);
+      Navigator.pushNamedAndRemoveUntil(context, "home", (route) => false);
     }
   }
 }
