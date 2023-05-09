@@ -1,10 +1,17 @@
-// ignore_for_file: camel_case_types
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bootcamp/controllers/signin_controller.dart';
+import 'package:get/get.dart';
 
+import '../../core/functions/textformfields_validators.dart';
+import '../widgets/app_logo.dart';
+import 'widgets/copyright_text.dart';
+import 'widgets/custom_button.dart';
+import 'widgets/custom_textformfield.dart';
+import 'widgets/header.dart';
+
+final emailcontroller = TextEditingController();
+final passcontroller = TextEditingController();
 var formKey = GlobalKey<FormState>();
-bool ischecked = false;
 bool isvisible = true;
 
 class SigninScreen extends StatelessWidget {
@@ -21,50 +28,20 @@ class SigninScreen extends StatelessWidget {
               padding: const EdgeInsets.all(40),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          size: 20,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      const Text(
-                        'Sign In',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        size: 20,
-                        color: Colors.white,
-                      ),
-                    ],
+                  const Header(
+                    title: "Connexion",
                   ),
                   const SizedBox(
-                    height: 58,
+                    height: 100,
                   ),
-                  const Text(
-                    'Welcome back',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontFamily: "Kanit",
-                      fontWeight: FontWeight.w600,
-                    ),
+                  const AppLogo(
+                    scale: 2.5,
                   ),
                   const SizedBox(
                     height: 13,
                   ),
                   const Text(
-                    'Sign in with your mail and password \n or continue with social media',
+                    "Connectez-vous avec votre email et mot de passe et profitez de l'application ",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       wordSpacing: 0.3,
@@ -77,51 +54,20 @@ class SigninScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 80,
+                    height: 60,
                   ),
-                  TextFormField(
-                    validator: (value) {
-                      final bool emailValid = RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(value!);
-                      if (value.isEmpty) {
-                        return "*Champ Obligatoire!";
-                      }
-                      if (!emailValid) {
-                        return "*Email non valid!";
-                      }
-                      return null;
-                    },
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 28, vertical: 20),
-                      labelText: 'Email',
-                      hintStyle: const TextStyle(
-                        fontFamily: 'os',
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      hintText: "Enter your email",
-                      labelStyle: const TextStyle(
-                        fontFamily: 'os',
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      suffixIcon: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 22),
-                        child: Icon(Icons.mail_outline),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                    ),
-                    autofocus: true,
+                  CustomTextFormField(
+                    hinttext: "Enter votre email",
+                    labeltext: "Email",
+                    suffixicon: Icons.mail_outline,
+                    controller: emailcontroller,
+                    validator: emailvalidator,
+                    isObscure: false,
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
-                  const passwordvisibility(),
+                  CustomTextFormField(hinttext: "Entrer votre mot de passe", labeltext: "Mot de passe", suffixicon: Icons.lock, controller: passcontroller, isObscure: true,validator: passvalidator,),
                   const SizedBox(
                     height: 28,
                   ),
@@ -129,9 +75,19 @@ class SigninScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
-                        children: const [
-                          ChangeCheckBox(),
-                          Text(
+                        children: [
+                          GetBuilder<SignInController>(
+                            id: "rememberme",
+                            builder: (controller) {
+                              return Checkbox(
+                                value: controller.isCheked,
+                                onChanged: (value) {
+                                  controller.changeRememberMe();
+                                },
+                              );
+                            }
+                          ),
+                          const Text(
                             'Remember me',
                             style: TextStyle(
                               fontSize: 15,
@@ -142,13 +98,18 @@ class SigninScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Text(
-                        "Forgot password",
-                        style: TextStyle(
-                          fontFamily: "os",
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xffAEAEAE),
-                          decoration: TextDecoration.underline,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, "forgetpassword");
+                        },
+                        child: const Text(
+                          "Forgot password",
+                          style: TextStyle(
+                            fontFamily: "os",
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xffAEAEAE),
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       ),
                     ],
@@ -156,73 +117,13 @@ class SigninScreen extends StatelessWidget {
                   const SizedBox(
                     height: 37,
                   ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: const Color.fromARGB(209, 255, 255, 255),
-                      backgroundColor: const Color(0xffF77546),
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 25,
-                        horizontal: 115,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(22),
-                      ),
-                    ),
-                    onPressed: () => login(context),
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: "os",
-                      ),
-                    ),
-                  ),
+                  CustomButton(
+                      text: "Continue",
+                      onpressed: () {
+                        login(context);
+                      }),
                   const SizedBox(
-                    height: 63,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Color(0xffEEEFF1),
-                          shape: BoxShape.circle,
-                        ),
-                        width: 37,
-                        height: 37,
-                        padding: const EdgeInsets.all(11),
-                        child: SvgPicture.asset("assets/icons/google.svg"),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Color(0xffEEEFF1),
-                          shape: BoxShape.circle,
-                        ),
-                        width: 37,
-                        height: 37,
-                        padding: const EdgeInsets.all(11),
-                        child: SvgPicture.asset("assets/icons/facebook.svg"),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Color(0xffEEEFF1),
-                          shape: BoxShape.circle,
-                        ),
-                        width: 37,
-                        height: 37,
-                        padding: const EdgeInsets.all(11),
-                        child: SvgPicture.asset("assets/icons/twitter.svg"),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 22,
+                    height: 20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -245,13 +146,17 @@ class SigninScreen extends StatelessWidget {
                           style: TextStyle(
                             fontFamily: 'op',
                             fontWeight: FontWeight.w500,
-                            color: Color(0xffF08F65),
+                            color: Color(0xff52C560),
                             fontSize: 17,
                           ),
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 55,
+                  ),
+                  const CopyrightText(),
                 ],
               ),
             ),
@@ -268,80 +173,3 @@ class SigninScreen extends StatelessWidget {
   }
 }
 
-class ChangeCheckBox extends StatefulWidget {
-  const ChangeCheckBox({super.key});
-
-  @override
-  State<ChangeCheckBox> createState() => _ChangeCheckBoxState();
-}
-
-class _ChangeCheckBoxState extends State<ChangeCheckBox> {
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-      value: ischecked,
-      onChanged: chang,
-    );
-  }
-
-  void chang(bool? a) {
-    ischecked = a!;
-    setState(() {});
-  }
-}
-
-class passwordvisibility extends StatefulWidget {
-  const passwordvisibility({super.key});
-
-  @override
-  State<passwordvisibility> createState() => _passwordvisiblityState();
-}
-
-class _passwordvisiblityState extends State<passwordvisibility> {
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      validator: (value) {
-        if (value!.isEmpty) {
-          return "*Champ Obligatoire!";
-        }
-        return null;
-      },
-      obscureText: isvisible,
-      keyboardType: TextInputType.visiblePassword,
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 28,
-          vertical: 20,
-        ),
-        hintText: 'Enter your password',
-        labelText: 'Password',
-        labelStyle: const TextStyle(
-          fontFamily: 'os',
-          fontSize: 17,
-          fontWeight: FontWeight.w500,
-        ),
-        hintStyle: const TextStyle(
-          fontFamily: 'os',
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-        ),
-        suffixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 13),
-          child: IconButton(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              onPressed: () {
-                isvisible = !isvisible;
-                setState(() {});
-              },
-              icon: Icon(isvisible ? Icons.visibility : Icons.visibility_off)),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40),
-        ),
-      ),
-    );
-  }
-}
