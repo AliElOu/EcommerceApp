@@ -13,6 +13,7 @@ class ProductPage extends StatelessWidget {
     final args =
         ModalRoute.of(context)!.settings.arguments as ProductPageArguments;
     ProductsModel products = args.pList;
+    String tag = args.tag;
     return Scaffold(
       backgroundColor: const Color(0xffF4F4F8),
       body: SafeArea(
@@ -22,7 +23,7 @@ class ProductPage extends StatelessWidget {
             ProductPageHeader(
               rating: products.rating,
             ),
-            ProductImages(images: products.images, id: products.id),
+            ProductImage(image: products.image, id: tag),
             const SizedBox(height: 25),
             ProductDetails(
               products: products,
@@ -36,6 +37,7 @@ class ProductPage extends StatelessWidget {
 
 class ProductPageArguments {
   final ProductsModel pList;
+  final String tag;
+  ProductPageArguments(this.pList, this.tag);
 
-  ProductPageArguments(this.pList);
 }

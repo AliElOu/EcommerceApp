@@ -5,9 +5,9 @@ import '../../../controllers/product_page_controller.dart';
 import '../../../models/cart_model.dart';
 import '../../../models/products_model.dart';
 
-class addToCart extends StatelessWidget {
+class AddToCart extends StatelessWidget {
   final ProductsModel products;
-  const addToCart({
+  const AddToCart({
     super.key,
     required this.products,
   });
@@ -36,14 +36,14 @@ class addToCart extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  foregroundColor: const Color.fromARGB(181, 255, 255, 255),
-                  backgroundColor: const Color.fromARGB(255, 206, 98, 59),
+                  foregroundColor: const Color.fromARGB(255, 216, 208, 208),
+                  backgroundColor: const Color.fromARGB(255, 49, 117, 57),
                 )
               : TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   foregroundColor: Colors.white,
-                  backgroundColor: const Color(0xffF77547)),
+                  backgroundColor: const Color(0xff52C560)),
           child: const Text("Add to Chart"),
           onPressed: () {
             controller.addToCart(products, isAlready, context);

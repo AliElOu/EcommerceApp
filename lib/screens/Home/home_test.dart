@@ -19,7 +19,7 @@ class HomeTest extends StatelessWidget {
         } else if (controller.statusRequest == StatusRequest.serverFailure) {
           return const Center(child: Text("Server failure"));
         } else {
-          return Center(child: Text("${controller.data}"));
+          return Center(child: Text(controller.listCategories[0].id.toString()));
         }
       },
     );

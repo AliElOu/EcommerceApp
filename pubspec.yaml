@@ -43,6 +43,8 @@ dependencies:
   http: ^0.13.6
   awesome_dialog: ^3.0.2
   flutter_otp_text_field: ^1.1.0+2
+  lottie: ^2.3.2
+
 
 
 

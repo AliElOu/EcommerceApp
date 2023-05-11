@@ -7,20 +7,23 @@ import '../../../models/products_model.dart';
 import '../../ProductPage/product_page.dart';
 
 class ProductsList extends StatelessWidget {
-  final ProductsModel Products;
+  final ProductsModel products;
+  final String tag;
   const ProductsList({
-    required this.Products,
+    required this.products,
+    required this.tag,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    String mytag = "${products.id}$tag";
     return Column(
       children: [
         GestureDetector(
           onTap: () {
             Navigator.pushNamed(context, "product",
-                arguments: ProductPageArguments(Products));
+                arguments: ProductPageArguments(products,mytag));
           },
           child: Container(
             height: 140,
@@ -34,7 +37,7 @@ class ProductsList extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Hero(
-                  tag: Products.id, child: Image.network(Products.images[0])),
+                  tag: mytag, child: Image.asset(products.image)),
             ),
           ),
         ),
@@ -50,7 +53,7 @@ class ProductsList extends StatelessWidget {
                   width: double.infinity,
                   height: 32,
                   child: Text(
-                    Products.name,
+                    products.name,
                     style: const TextStyle(
                         fontFamily: "ubuntu", fontSize: 13, height: 1.3),
                   ),
@@ -59,20 +62,20 @@ class ProductsList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "\$${Products.price}",
+                      "\$${products.price}",
                       style: TextStyle(
                           fontFamily: "ubuntu",
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                           height: 1.3,
-                          color: Colors.orange.shade700),
+                          color: Color(0xff52C560)),
                     ),
                     GetBuilder<ProductPageController>(builder: (controller) {
                       return Container(
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                          color: Products.isFavorit
+                          color: products.isFavorit
                               ? const Color.fromARGB(38, 158, 87, 28)
                               : const Color.fromARGB(31, 158, 158, 158),
                           borderRadius: BorderRadius.circular(10),
@@ -82,9 +85,9 @@ class ProductsList extends StatelessWidget {
                           splashColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           onPressed: () {
-                            controller.toggleFavorite(Products);
+                            controller.toggleFavorite(products);
                           },
-                          icon: Products.isFavorit
+                          icon: products.isFavorit
                               ? SvgPicture.network(
                                   "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon_2.svg",
                                   color: Colors.red)

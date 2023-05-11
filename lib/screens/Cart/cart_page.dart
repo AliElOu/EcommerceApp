@@ -1,4 +1,3 @@
-// ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
@@ -8,14 +7,14 @@ import '../../models/cart_model.dart';
 import 'widgets/cart_products.dart';
 import 'widgets/custom_app_bar.dart';
 import 'widgets/custom_nav_bar.dart';
+import 'widgets/empty_cart_widget.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -28,19 +27,13 @@ class CartPage extends StatelessWidget {
           child: GetBuilder<ProductPageController>(builder: (controller) {
         return SingleChildScrollView(
           child: cartList.isEmpty
-              ?  SizedBox(
-                height: height - 250,
-                child: const Center(
-                  child: Text(
-                    "No items ! ",
-                    style: TextStyle(color: Colors.grey, fontSize: 17),
-                  ),
-                ),
-              )
-              : const cartProductsList(),
+              ?  EmptyCartWidget()
+              : const CartProductsList(),
         );
       })),
       bottomNavigationBar: const CustomNavBar(),
     );
   }
 }
+
+

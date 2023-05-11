@@ -53,18 +53,32 @@ class _CustomNavBarState extends State<CustomNavBar> {
               })
             ],
           ),
-          TextButton(
-            style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 55, vertical: 20),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                foregroundColor: Colors.white,
-                backgroundColor: const Color(0xffF77547)),
-            child: const Text(
-              "Check Out",
-              style: TextStyle(fontSize: 18),
-            ),
-            onPressed: () {},
+          GetBuilder<ProductPageController>(
+            builder: (controller) {
+              return TextButton(
+                style: cartList.isEmpty
+                    ? TextButton.styleFrom(
+                      splashFactory: NoSplash.splashFactory,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 55, vertical: 20),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        foregroundColor: const Color.fromARGB(255, 216, 208, 208),
+                        backgroundColor: const Color.fromARGB(255, 49, 117, 57))
+                    : TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 55, vertical: 20),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color(0xff52C560)),
+                child: const Text(
+                  "Check Out",
+                  style: TextStyle(fontSize: 18),
+                ),
+                onPressed: () {},
+              );
+            }
           ),
         ],
       ),

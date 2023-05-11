@@ -4,6 +4,7 @@ import 'package:flutter_bootcamp/screens/Auth/forgetpassword_screen.dart';
 import 'package:flutter_bootcamp/screens/Auth/resetpassword_screen.dart';
 import 'package:flutter_bootcamp/screens/Cart/cart_page.dart';
 import 'package:flutter_bootcamp/screens/Home/home_screen.dart';
+import 'package:flutter_bootcamp/screens/favorits/favorits_screen.dart';
 import 'package:get/get.dart';
 import 'controllers/signin_controller.dart';
 import 'screens/Auth/otpverification_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      initialRoute: "onboarding",
+      initialRoute: "home",
       routes: {
            "onboarding": (context) => const Onboardingscreen(),
            "login": (context) => const SigninScreen(),
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
            "home": (context) => const Homepage(),
            "product": (context) => const ProductPage(),
            "cart": (context) => const CartPage(),
+           "favorits": (context) => const FavoritsScreen(),
       },
     );
   }

@@ -5,6 +5,7 @@ import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../widgets/app_logo.dart';
 import 'custom_icon_button.dart';
 
 class Customappbar extends StatelessWidget {
@@ -17,23 +18,9 @@ class Customappbar extends StatelessWidget {
       width: double.infinity,
       height: 55,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-              child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-                color: const Color.fromARGB(31, 158, 158, 158),
-                borderRadius: BorderRadius.circular(20)),
-            child: const TextField(
-              decoration: InputDecoration(
-                hintText: "Search product",
-                prefixIcon: Icon(Icons.search),
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                prefixIconColor: Colors.grey,
-              ),
-            ),
-          )),
+          const AppLogo(scale: 2.5,),
           const SizedBox(width: 10),
           GetBuilder<ProductPageController>(builder: (controller) {
             return CustomIconButton(
@@ -41,9 +28,7 @@ class Customappbar extends StatelessWidget {
                   "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Cart%20Icon.svg",
               onPressMethod: () => Navigator.pushNamed(context, "cart"),
             );
-          }),
-          const SizedBox(width: 7),
-          // CustomIconButton(iconPath: "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Bell.svg",onPressMethod:(){})
+          }),        
         ],
       ),
     );

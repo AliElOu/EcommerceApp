@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-class custom_category_icon_button extends StatelessWidget {
-  String iconPath;
-  String title;
-   custom_category_icon_button({
+class CustomCategoryIconButton extends StatelessWidget {
+  final String iconPath;
+  final String title;
+  const CustomCategoryIconButton({
     required this.iconPath,
     required this.title,
     super.key,
@@ -12,33 +11,27 @@ class custom_category_icon_button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 55,
-          width: 55,
-          decoration: BoxDecoration(
-            color: const Color(0xffF9E7DA),
-            borderRadius: BorderRadius.circular(10)
+    return Padding(
+      padding: const EdgeInsets.only(right: 15),
+      child: Column(
+        children: [
+          Container(
+              height: 68,
+              width: 68,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+              child: Image.asset(iconPath)),
+          const SizedBox(height: 8),
+          Text(
+            title,
+            style: const TextStyle(
+                color: Colors.black,
+                fontSize: 13,
+                fontFamily: "os",
+                height: 1.1),
+            textAlign: TextAlign.center,
           ),
-          child: IconButton(onPressed: (){},
-           icon: SvgPicture.network(iconPath),
-           highlightColor: Colors.transparent,
-           splashColor:Colors.transparent ,
-           hoverColor: Colors.transparent,
-           ),
-        ),
-        const SizedBox(height: 5),
-         Text(title,
-         style: const TextStyle(
-          color: Color.fromARGB(172, 158, 158, 158),
-          fontSize: 16,
-          fontFamily: "Kanit",
-          height: 1.1
-          ),
-          textAlign: TextAlign.center,
-         ),
-      ],
+        ],
+      ),
     );
   }
 }

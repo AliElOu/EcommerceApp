@@ -25,39 +25,41 @@ class ProductCustomisation extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...List.generate(
-                    products.colors.length,
-                    (index) => GetBuilder<ProductPageController>(
-                        init: ProductPageController(),
-                        builder: (controller) {
-                          return GestureDetector(
-                            onTap: () {
-                              controller.selectColor(index);
-                            },
-                            child: Container(
-                              margin: const EdgeInsets.only(right: 3),
-                              padding: const EdgeInsets.all(5),
-                              height: 33,
-                              width: 33,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: controller.selectedColor == index
-                                        ? const Color(0xffF77547)
-                                        : Colors.transparent),
-                                shape: BoxShape.circle,
-                                color: Colors.transparent,
-                              ),
-                              child: Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: products.colors[index],
-                                ),
-                              ),
+                /* ...List.generate(
+                  products.colors.length,
+                  (index) => GetBuilder<ProductPageController>(
+                    init: ProductPageController(),
+                    builder: (controller) {
+                      return GestureDetector(
+                        onTap: () {
+                          controller.selectColor(index);
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(right: 3),
+                          padding: const EdgeInsets.all(5),
+                          height: 33,
+                          width: 33,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: controller.selectedColor == index
+                                    ? const Color(0xffF77547)
+                                    : Colors.transparent),
+                            shape: BoxShape.circle,
+                            color: Colors.transparent,
+                          ),
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: products.colors[index],
                             ),
-                          );
-                        })),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),*/
                 const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -83,16 +85,16 @@ class ProductCustomisation extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     GetBuilder<ProductPageController>(
-                        init: ProductPageController(),
-                        builder: (controller) {
-                          return SizedBox(
-                              width: 23,
-                              height: 20,
-                              child: Text(
-                                  controller.selectedQuantity.toString(),
-                                  style: const TextStyle(
-                                      fontFamily: "Kanit", fontSize: 16)));
-                        }),
+                      init: ProductPageController(),
+                      builder: (controller) {
+                        return SizedBox(
+                            width: 23,
+                            height: 20,
+                            child: Text(controller.selectedQuantity.toString(),
+                                style: const TextStyle(
+                                    fontFamily: "Kanit", fontSize: 16)));
+                      },
+                    ),
                     InkWell(
                       onTap: () {
                         productController.incrementQuantity(products.quantity);
@@ -117,7 +119,7 @@ class ProductCustomisation extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          addToCart(products: products)
+          AddToCart(products: products)
         ],
       ),
     );
