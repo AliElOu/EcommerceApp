@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class listHeader extends StatelessWidget {
   String title;
+  final VoidCallback SeeMoreMethod;
   listHeader({
     required this.title,
-    super.key,
+    super.key, required this.SeeMoreMethod,
   });
 
   @override
@@ -12,7 +13,7 @@ class listHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.only(bottom: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -25,7 +26,7 @@ class listHeader extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {SeeMoreMethod();},
               child: const Text(
                 "See more",
                 style: TextStyle(

@@ -9,10 +9,13 @@ import '../../ProductPage/product_page.dart';
 class ProductsList extends StatelessWidget {
   final ProductsModel products;
   final String tag;
+  final double height;
+  final double width;
+  
   const ProductsList({
     required this.products,
     required this.tag,
-    super.key,
+    super.key, required this.height, required this.width,
   });
 
   @override
@@ -26,9 +29,8 @@ class ProductsList extends StatelessWidget {
                 arguments: ProductPageArguments(products,mytag));
           },
           child: Container(
-            height: 140,
-            width: 140,
-            margin: const EdgeInsets.only(left: 12),
+            height: height,
+            width: width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: const Color(0xffEDEEF1),
@@ -44,12 +46,12 @@ class ProductsList extends StatelessWidget {
         const SizedBox(height: 5),
         Padding(
           padding: const EdgeInsets.only(left: 12),
-          child: Container(
+          child: SizedBox(
             width: 140,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: double.infinity,
                   height: 32,
                   child: Text(
@@ -63,7 +65,7 @@ class ProductsList extends StatelessWidget {
                   children: [
                     Text(
                       "\$${products.price}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: "ubuntu",
                           fontWeight: FontWeight.bold,
                           fontSize: 16,

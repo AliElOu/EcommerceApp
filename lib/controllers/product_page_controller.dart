@@ -6,7 +6,6 @@ import '../models/products_model.dart';
 
 class ProductPageController extends GetxController{
   int selectedImage = 0;
-  bool isFavourite = false;
   int selectedQuantity = 0;
   int selectedColor = 0;
   bool isExpanded = false;
@@ -33,7 +32,13 @@ class ProductPageController extends GetxController{
   }
 
   void toggleFavorite(ProductsModel products) {
+    if(products.isFavorit == true){
+      
+    }else {
+
+    }
     products.isFavorit = !products.isFavorit;
+    
     update();
   }
 

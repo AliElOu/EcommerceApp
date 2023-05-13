@@ -7,7 +7,4 @@ class CartModel {
   CartModel({required this.product, required this.quantity});
 }
 
-List<CartModel> cartList = [
-  // CartModel(product: productsList[0],quantity: 2),
-  // CartModel(product: productsList[1],quantity: 1),
-];
+List<CartModel> cartList = [];

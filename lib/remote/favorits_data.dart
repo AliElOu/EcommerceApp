@@ -1,14 +1,14 @@
 import 'package:flutter_bootcamp/api_links.dart';
 import 'package:flutter_bootcamp/core/classes/crud.dart';
 
-class HomeData {
+class FavoritsData {
 
   Crud crud ;
-  HomeData(this.crud);
+  FavoritsData(this.crud);
 
-  getData(String id) async{
-    var response = await crud.postData(AppLinks.home, {
-      "userid" : id,
+  postData(String userid) async{
+    var response = await crud.postData(AppLinks.favoritsList, {
+      "userId" : userid,
     });
     return response.fold((l) => l, (r) => r) ;
   }

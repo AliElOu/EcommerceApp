@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProductsModel {
-  final String name, description,image;
+  final String name, description, image;
   final double price, rating;
   final int id, quantity;
   bool isFavorit;
@@ -23,7 +23,7 @@ class ProductsModel {
       name: json['name'],
       image: json['image'],
       description: json['description'],
-      isFavorit: false,
+      isFavorit: json['isFavorit'] == "1" ? true : false,
       price: double.parse(json['price']),
       rating: double.parse(json['rating']),
       quantity: int.parse(json['quantity']),
@@ -31,13 +31,11 @@ class ProductsModel {
   }
 }
 
-/*List<ProductsModel> productsList = [
+List<ProductsModel> productsList = [
   ProductsModel(
     id: 1,
-    image: 
-      "https://github.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/blob/main/assets/images/ps4_console_white_1.png?raw=true",
-      
-    
+    image:
+        "assets/images/01.png",
     name: "Wireless Controller for PS4™",
     price: 64.99,
     description:
@@ -48,18 +46,7 @@ class ProductsModel {
   ),
   ProductsModel(
       id: 2,
-      images: [
-        "https://github.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/blob/main/assets/images/Image%20Popular%20Product%202.png?raw=true",
-        "https://github.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/blob/main/assets/images/Image%20Popular%20Product%202.png?raw=true",
-        "https://github.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/blob/main/assets/images/Image%20Popular%20Product%202.png?raw=true",
-        "https://github.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/blob/main/assets/images/Image%20Popular%20Product%202.png?raw=true",
-      ],
-      colors: [
-        const Color(0xFFF6625E),
-        const Color(0xFF836DB8),
-        const Color(0xFFDECB9C),
-        Colors.white,
-      ],
+      image: "assets/images/02.png",
       name: "Nike Sport White - Man Pant",
       price: 50.5,
       description:
@@ -69,15 +56,7 @@ class ProductsModel {
       isFavorit: false),
   ProductsModel(
       id: 3,
-      images: [
-        "https://github.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/blob/main/assets/images/glap.png?raw=true",
-      ],
-      colors: [
-        const Color(0xFFF6625E),
-        const Color(0xFF836DB8),
-        const Color(0xFFDECB9C),
-        Colors.white,
-      ],
+      image: "assets/images/03.png",
       name: "Gloves XC Omega - Polygon",
       price: 36.55,
       description: "description",
@@ -86,15 +65,7 @@ class ProductsModel {
       quantity: 5),
   ProductsModel(
       id: 4,
-      images: [
-        "https://github.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/blob/main/assets/images/wireless%20headset.png?raw=true",
-      ],
-      colors: [
-        const Color(0xFFF6625E),
-        const Color(0xFF836DB8),
-        const Color(0xFFDECB9C),
-        Colors.white,
-      ],
+      image: "assets/images/04.png",
       name: "Logitech Head",
       price: 20.20,
       description: "description",
@@ -102,4 +73,3 @@ class ProductsModel {
       isFavorit: true,
       quantity: 7),
 ];
-*/

@@ -1,14 +1,14 @@
 import 'package:flutter_bootcamp/api_links.dart';
 import 'package:flutter_bootcamp/core/classes/crud.dart';
 
-class HomeData {
+class ForgetPasswordData {
 
   Crud crud ;
-  HomeData(this.crud);
+  ForgetPasswordData(this.crud);
 
-  getData(String id) async{
-    var response = await crud.postData(AppLinks.home, {
-      "userid" : id,
+  postData(String email) async{
+    var response = await crud.postData(AppLinks.verifyResetPassword, {
+      "email" : email,
     });
     return response.fold((l) => l, (r) => r) ;
   }

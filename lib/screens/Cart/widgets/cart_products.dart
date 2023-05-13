@@ -51,7 +51,7 @@ class CartProductsList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       color: const Color(0xffEDEEF1),
                     ),
-                    child: Image.network(cartList[index].product.image),
+                    child: Image.asset(cartList[index].product.image),
                   ),
                   const SizedBox(width: 13),
                   Column(
