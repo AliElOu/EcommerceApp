@@ -11,7 +11,7 @@ class VerifyAccountController extends GetxController {
   Crud crud = Crud();
   late VerifyAccountData verifyaccountdata = VerifyAccountData(crud);
 
-   StatusRequest? statusrequest;
+  StatusRequest? statusrequest;
 
   late GlobalKey<FormState> key;
 

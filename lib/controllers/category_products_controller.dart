@@ -8,16 +8,17 @@ import '../models/products_model.dart';
 import '../remote/category_products_data.dart';
 
 class CategoryProductsController extends GetxController {
-  CategoryProductsController({required this.catid});
   Crud crud = Crud();
   late CategoryProductsData categoryProductsData = CategoryProductsData(crud);
 
   List<ProductsModel> listCatProducts = [];
 
-  late StatusRequest statusrequest;
-  late String catid;
+   StatusRequest? statusrequest;
 
-  getData() async {
+  
+
+  
+  getData(String catid) async {
     statusrequest = StatusRequest.loading;
     var response = await categoryProductsData.postData(catid);
     statusrequest = handlingData(response);
@@ -30,19 +31,15 @@ class CategoryProductsController extends GetxController {
     }
   }
 
-  @override
-  void onInit() {
-    getData();
-    super.onInit();
-  }
 
 
 
-  Future<void> handleRefresh(RefreshController rc) async {
+
+  Future<void> handleRefresh(RefreshController rc,String catid) async {
     listCatProducts.clear();
 
     update();
-    getData();
+    getData(catid);
 
     rc.refreshCompleted();
   }

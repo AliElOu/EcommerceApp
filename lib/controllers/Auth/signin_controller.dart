@@ -46,7 +46,7 @@ class SignInController extends GetxController {
           prefs.setString("id", "${data[0]["id_user"]}");
           prefs.setString("username", "${data[0]["username"]}");
           prefs.setString("email", "${data[0]["email"]}");
-          prefs.setString("pass", "${data[0]["pass"]}");
+          prefs.setString("pass", "${data[0]["password"]}");
           prefs.setString("is_verified", "${data[0]["is_verified"]}");
           data.clear();
           update();

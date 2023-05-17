@@ -87,7 +87,7 @@ class ProductsList extends StatelessWidget {
                           splashColor: Colors.transparent,
                           hoverColor: Colors.transparent,
                           onPressed: () {
-                            controller.toggleFavorite(products);
+                            controller.toggleFavorite(products,context);
                           },
                           icon: products.isFavorit
                               ? SvgPicture.network(

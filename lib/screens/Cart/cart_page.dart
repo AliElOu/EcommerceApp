@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
+import '../../enums/status_request.dart';
 import '../../models/cart_model.dart';
 import 'widgets/cart_products.dart';
 import 'widgets/custom_app_bar.dart';
@@ -14,7 +16,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -27,8 +29,15 @@ class CartPage extends StatelessWidget {
           child: GetBuilder<ProductPageController>(builder: (controller) {
         return SingleChildScrollView(
           child: cartList.isEmpty
-              ?  EmptyCartWidget()
-              : const CartProductsList(),
+              ?  const EmptyCartWidget()
+              : controller.statusrequest == StatusRequest.loading
+            ? SizedBox(
+                height: height - 250,
+                child: Center(
+                  child: Lottie.asset("assets/lottie/loading.json",
+                      width: 150, height: 150),
+                ))
+            : const CartProductsList(),
         );
       })),
       bottomNavigationBar: const CustomNavBar(),

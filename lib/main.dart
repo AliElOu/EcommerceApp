@@ -9,6 +9,10 @@ import 'package:flutter_bootcamp/screens/Cart/cart_page.dart';
 import 'package:flutter_bootcamp/screens/Category/category_products_list.dart';
 import 'package:flutter_bootcamp/screens/Home/home_screen.dart';
 import 'package:flutter_bootcamp/screens/NewProducts/new_products_screen.dart';
+import 'package:flutter_bootcamp/screens/Profile/change_password_screen.dart';
+import 'package:flutter_bootcamp/screens/Profile/orders_history_products_screen.dart';
+import 'package:flutter_bootcamp/screens/Profile/orders_history_screen.dart';
+import 'package:flutter_bootcamp/screens/Profile/profile_screen.dart';
 import 'package:flutter_bootcamp/screens/favorits/favorits_screen.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -40,11 +44,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      initialRoute: "login", /*(isFirstLaunch == 0 || isFirstLaunch == null)
+      initialRoute:(isFirstLaunch == 0 || isFirstLaunch == null)
           ? "onboarding"
           : prefs.getString("email") == null
               ? "login"
-              : "home",*/
+              : "home",
       routes: {
         "onboarding": (context) => const Onboardingscreen(),
         "login": (context) => const SigninScreen(),
@@ -60,6 +64,10 @@ class MyApp extends StatelessWidget {
         "newproducts": (context) => const NewProductsScreen(),
         "popproducts": (context) => const PopProductsScreen(),
         "category": (context) => const CategorieProductsList(),
+        "profile": (context) => const ProfilePage(),
+        "changepass": (context) => const ChangePasswordPage(),
+        "history": (context) => const OrdersHistoryScreen(),
+        "historyproducts": (context) => const OrdersHistoryProductsScreen(),
       },
     );
   }

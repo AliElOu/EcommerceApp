@@ -76,7 +76,11 @@ class _CustomNavBarState extends State<CustomNavBar> {
                   "Check Out",
                   style: TextStyle(fontSize: 18),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  if(cartList.isNotEmpty){
+                    controller.checkout(context);
+                  }
+                },
               );
             }
           ),

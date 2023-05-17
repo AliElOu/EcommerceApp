@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/screens/widgets/custom_navbar.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -15,7 +16,7 @@ class FavoritsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     RefreshController refreshController1 =
-        RefreshController(initialRefresh: false);
+        RefreshController(initialRefresh: true);
     Get.put(FavoritsListController(userid: prefs.getString("id")!));
     return GetBuilder<FavoritsListController>(
       builder: (controller) {
@@ -30,7 +31,8 @@ class FavoritsScreen extends StatelessWidget {
                   widget: ProductsListWidget(
                       title: "Favorits",
                       productslist: controller.favoritsList,
-                      currentpage: MenuState.favorite))),
+                      )),
+                      bottomNavigationBar: const  CustomNavbar(currentPage: MenuState.favorite,),),
         );
       }
     );

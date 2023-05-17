@@ -3,30 +3,28 @@ import 'package:flutter_bootcamp/enums/status_request.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../core/functions/handling_data.dart';
-import '../models/products_model.dart';
-import '../remote/favorits_data.dart';
+import '../../core/functions/handling_data.dart';
+import '../../models/order_model.dart';
+import '../../remote/Profile/orders_history_data.dart';
 
-class FavoritsListController extends GetxController {
-  FavoritsListController({required this.userid});
+
+class OrdersHistoryController extends GetxController {
   Crud crud = Crud();
-  late FavoritsData favoritsdata = FavoritsData(crud);
 
-  List<ProductsModel> favoritsList = [];
+  late OrdersHistroyData ordershistroydata = OrdersHistroyData(crud);
+  List<OrderModel> ordersList = [];
 
   late StatusRequest statusrequest;
-  late String userid;
 
   getData() async {
     statusrequest = StatusRequest.loading;
-    var response = await favoritsdata.postData(userid);
+    var response = await ordershistroydata.postData();
     statusrequest = handlingData(response);
     update();
     if (statusrequest == StatusRequest.succes) {
-      favoritsList.clear();
+      ordersList.clear();
       for (Map item in response['data']) {
-        
-        favoritsList.add(ProductsModel.fromJson(item));
+        ordersList.add(OrderModel.fromJson(item));
       }
       update();
     }
@@ -39,7 +37,7 @@ class FavoritsListController extends GetxController {
   }
 
   Future<void> handleRefresh(RefreshController rc) async {
-    favoritsList.clear();
+    ordersList.clear();
 
     update();
     getData();

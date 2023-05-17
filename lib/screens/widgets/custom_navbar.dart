@@ -90,7 +90,9 @@ class CustomNavbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, "profile");
+                },
                 icon: currentPage == MenuState.profile
                     ? SvgPicture.network(
                         "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/User%20Icon.svg",

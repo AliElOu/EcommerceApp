@@ -40,7 +40,7 @@ class ProductDetails extends StatelessWidget {
                 const SizedBox(height: 10),
                 GestureDetector(
                   onTap: () {
-                    productController.toggleFavorite(products);
+                    productController.toggleFavorite(products,context,false);
                   },
                   child:
                       GetBuilder<ProductPageController>(builder: (controller) {

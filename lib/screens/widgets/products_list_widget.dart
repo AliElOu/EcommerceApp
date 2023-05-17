@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import '../../enums/menu_state.dart';
 import '../../models/products_model.dart';
 import '../Home/widgets/popular_products_list.dart';
-import 'custom_navbar.dart';
 import 'header.dart';
 
 class ProductsListWidget extends StatelessWidget {
   final String title;
   final List<ProductsModel> productslist;
-  final MenuState currentpage;
   const ProductsListWidget({
-    super.key, required this.title, required this.productslist, required this.currentpage,
+    super.key, required this.title, required this.productslist,
   });
 
   @override
@@ -46,9 +44,7 @@ class ProductsListWidget extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar:  CustomNavbar(
-        currentPage: currentpage,
-      ),
+      
     );
   }
 }

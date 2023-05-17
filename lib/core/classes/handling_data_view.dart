@@ -6,7 +6,7 @@ import '../../screens/widgets/trouble_widget.dart';
 
 
 class HandlignDataView extends StatelessWidget {
-  final StatusRequest statusrequest;
+  final StatusRequest? statusrequest;
   final Widget widget;
   const HandlignDataView({
     super.key,
@@ -15,7 +15,6 @@ class HandlignDataView extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    print("i'am here");
     double height = MediaQuery.of(context).size.height;
     return statusrequest == StatusRequest.loading
         ? SizedBox(

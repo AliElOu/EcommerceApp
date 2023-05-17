@@ -14,7 +14,7 @@ class Customappbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 18),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 13),
       width: double.infinity,
       height: 55,
       child: Row(

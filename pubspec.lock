@@ -453,6 +453,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  toasty_snackbar:
+    dependency: "direct main"
+    description:
+      name: toasty_snackbar
+      sha256: f049edda93536bb0542c7c2c0052c6c40cfce1a7ccce7cf0ba6da5cadd614fde
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
+  top_snackbar_flutter:
+    dependency: "direct main"
+    description:
+      name: top_snackbar_flutter
+      sha256: "7d4aa8f0031ad4a597c02487b4bb9b0dbb6a8d76ce1ab6e13e9565f865c1b70c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0+1"
   typed_data:
     dependency: transitive
     description:

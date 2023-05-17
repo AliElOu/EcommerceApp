@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/screens/widgets/custom_navbar.dart';
 
 import '../../enums/menu_state.dart';
 import '../../models/products_model.dart';
@@ -14,7 +13,13 @@ class NewProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args =
         ModalRoute.of(context)!.settings.arguments as ProductslistArguments;
-        List<ProductsModel>  poductslist = args.poductsList;
-    return ProductsListWidget(title: "New Products", productslist: poductslist, currentpage: MenuState.home);
+    List<ProductsModel> poductslist = args.poductsList;
+    return Scaffold(
+      body: ProductsListWidget(
+        title: "New Products",
+        productslist: poductslist,
+      ),
+      bottomNavigationBar: const CustomNavbar(currentPage: MenuState.home),
+    );
   }
 }

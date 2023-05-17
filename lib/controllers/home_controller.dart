@@ -15,7 +15,6 @@ class HomeController extends GetxController {
 
   List<CategoriesModel> listCategories = [];
   List<ProductsModel> listNewProducts = [];
-  List<ProductsModel> listPopProducts = [];
 
   late StatusRequest statusRequest;
 
@@ -31,11 +30,31 @@ class HomeController extends GetxController {
       for (Map item in response['data']['newProd']) {
         listNewProducts.add(ProductsModel.fromJson(item));
       }
-      for (Map item in response['data']['popProd']) {
-        listPopProducts.add(ProductsModel.fromJson(item));
-      }
     }
     update();
+  }
+
+
+   StatusRequest? statusRequest2;
+  List<ProductsModel> listSearchedProducts = [];
+
+  getSearch(String name) async{
+    if(name == ""){
+      update();
+    }else{
+      listSearchedProducts.clear();
+    statusRequest2 = StatusRequest.loading;
+    update();
+    update(["search"]);
+    var response = await homeData.getSearch(name);
+    statusRequest2 = handlingData(response);
+    if (statusRequest2 == StatusRequest.succes) {
+      for (Map item in response['data']) {
+        listSearchedProducts.add(ProductsModel.fromJson(item));
+      }
+    }
+    update(["search"]);
+    }  
   }
 
   @override
@@ -47,7 +66,6 @@ class HomeController extends GetxController {
   Future<void> handleRefresh(RefreshController rc) async {
     listCategories.clear();
     listNewProducts.clear();
-    listPopProducts.clear();
     update();
     getData();
 
