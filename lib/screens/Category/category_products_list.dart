@@ -7,6 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../controllers/category_products_controller.dart';
 import '../../enums/menu_state.dart';
 import '../widgets/custom_navbar.dart';
+import '../widgets/header.dart';
 
 class CategorieProductsList extends StatelessWidget {
   const CategorieProductsList({super.key});
@@ -31,11 +32,17 @@ class CategorieProductsList extends StatelessWidget {
           controller.handleRefresh(refreshController1,id);
         },
         child: Scaffold(
+          appBar: AppBar(
+        toolbarHeight: 100,
+        shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+        title: Header(title: name),
+      ),
           body: SafeArea(
             child: HandlignDataView(
               statusrequest: controller.statusrequest,
               widget: ProductsListWidget(
-                  title: name,
                   productslist: controller.listCatProducts,
                   ),
             ),

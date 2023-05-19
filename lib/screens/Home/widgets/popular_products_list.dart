@@ -64,7 +64,7 @@ class ProductsList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "\$${products.price}",
+                      "${products.price} DH",
                       style: const TextStyle(
                           fontFamily: "ubuntu",
                           fontWeight: FontWeight.bold,

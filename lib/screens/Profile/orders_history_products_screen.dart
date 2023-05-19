@@ -20,17 +20,20 @@ class OrdersHistoryProductsScreen extends StatelessWidget {
     Get.put(OrderHistoryProductsController());
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 62,
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: const Header(title: "Détails du commande"),
+        title: Padding(
+          padding: EdgeInsets.only(top: 40),
+          child: const Header(title: "Détails du commande"),
+        ),
       ),
       body: GetBuilder<OrderHistoryProductsController>(builder: (controller) {
         return SmartRefresher(
           controller: refreshController1,
           onRefresh: () {
-            controller.handleRefresh(refreshController1,id);
+            controller.handleRefresh(refreshController1, id);
           },
           child: SafeArea(
             child: SingleChildScrollView(
@@ -45,7 +48,6 @@ class OrdersHistoryProductsScreen extends StatelessWidget {
     );
   }
 }
-
 
 class OrdersHistoryProductsArguments {
   final String id;

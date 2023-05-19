@@ -29,12 +29,26 @@ class ProductDetails extends StatelessWidget {
                 Container(
                   width: double.maxFinite,
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    products.name,
-                    style: const TextStyle(
-                        fontSize: 19,
-                        fontFamily: "os",
-                        fontWeight: FontWeight.bold),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        products.name,
+                        style: const TextStyle(
+                            fontSize: 19,
+                            fontFamily: "os",
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        "${products.price}Dh",
+                        style: const TextStyle(
+                            fontSize: 22,
+                            fontFamily: "os",
+                            color:Color(0xff52C560) ,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 10),

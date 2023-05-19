@@ -12,12 +12,19 @@ class OrderProductsListWidget extends StatelessWidget {
         Get.find<OrderHistoryProductsController>();
     double width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Column(
-        children: [
-        Text("Total : \$${ordershistoryproductscontroller.total}",
-        style: const TextStyle(fontSize: 22,fontFamily: "os",fontWeight: FontWeight.bold),),
-        const SizedBox(height: 10),
+      padding: const EdgeInsets.only(top: 60),
+      child: Column(children: [
+        Text(
+          "Total : \$${ordershistoryproductscontroller.total}",
+          style: const TextStyle(
+              fontSize: 25, fontFamily: "os", fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 15),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: Divider(color: Colors.grey),
+        ),
+        const SizedBox(height: 5),
         ...List.generate(
           ordershistoryproductscontroller.productsList.length,
           (index) => Padding(

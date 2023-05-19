@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
 
+import '../../../enums/status_request.dart';
 import '../../../models/cart_model.dart';
 
 class CustomNavBar extends StatefulWidget {
@@ -56,7 +57,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
           GetBuilder<ProductPageController>(
             builder: (controller) {
               return TextButton(
-                style: cartList.isEmpty
+                style: cartList.isEmpty || controller.statusrequest == StatusRequest.loading
                     ? TextButton.styleFrom(
                       splashFactory: NoSplash.splashFactory,
                         padding: const EdgeInsets.symmetric(
@@ -77,7 +78,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                   style: TextStyle(fontSize: 18),
                 ),
                 onPressed: () {
-                  if(cartList.isNotEmpty){
+                  if(cartList.isNotEmpty && controller.statusrequest != StatusRequest.loading){
                     controller.checkout(context);
                   }
                 },

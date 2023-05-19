@@ -122,6 +122,7 @@ class ProductPageController extends GetxController {
     print(response);
     if (statusrequest == StatusRequest.succes) {
       update();
+      Navigator.pushNamed(context, "successcheckout");
       cartList.clear();
     }else if(statusrequest == StatusRequest.failure){
       update();

@@ -16,11 +16,14 @@ class OrdersHistoryScreen extends StatelessWidget {
     Get.put(OrdersHistoryController());
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 62,
           shadowColor: Colors.transparent,
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          title: const Header(title: "Historique des commandes")),
+          title: const Padding(
+            padding: EdgeInsets.only(top: 40),
+            child: Header(title: "Historique des commandes"),
+          )),
       body: GetBuilder<OrdersHistoryController>(builder: (controller) {
         return SmartRefresher(
           controller: refreshController1,
@@ -36,4 +39,3 @@ class OrdersHistoryScreen extends StatelessWidget {
     );
   }
 }
-

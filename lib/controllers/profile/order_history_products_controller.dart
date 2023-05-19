@@ -15,7 +15,7 @@ class OrderHistoryProductsController extends GetxController {
   List<ProductsModel> productsList = [];
 
   StatusRequest? statusrequest;
-  late double total;
+  late double total =0;
   
 
   getData(String orderId) async {

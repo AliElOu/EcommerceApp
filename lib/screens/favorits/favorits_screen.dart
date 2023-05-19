@@ -8,6 +8,7 @@ import '../../core/classes/handling_data_view.dart';
 import '../../enums/menu_state.dart';
 
 import '../../main.dart';
+import '../widgets/header.dart';
 import '../widgets/products_list_widget.dart';
 
 class FavoritsScreen extends StatelessWidget {
@@ -26,10 +27,16 @@ class FavoritsScreen extends StatelessWidget {
               controller.handleRefresh(refreshController1);
             },
           child: Scaffold(
+            appBar: AppBar(
+        toolbarHeight: 100,
+        shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+        title: const Header(title: "Favorits"),
+      ),
               body: HandlignDataView(
                 statusrequest:controller.statusrequest ,
                   widget: ProductsListWidget(
-                      title: "Favorits",
                       productslist: controller.favoritsList,
                       )),
                       bottomNavigationBar: const  CustomNavbar(currentPage: MenuState.favorite,),),

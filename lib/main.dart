@@ -6,6 +6,7 @@ import 'package:flutter_bootcamp/screens/Auth/resetpassword_screen.dart';
 import 'package:flutter_bootcamp/screens/Auth/verify_account_screen.dart';
 import 'package:flutter_bootcamp/screens/Auth/verify_reset_password_screen.dart';
 import 'package:flutter_bootcamp/screens/Cart/cart_page.dart';
+import 'package:flutter_bootcamp/screens/Cart/succes_checkout_screen.dart';
 import 'package:flutter_bootcamp/screens/Category/category_products_list.dart';
 import 'package:flutter_bootcamp/screens/Home/home_screen.dart';
 import 'package:flutter_bootcamp/screens/NewProducts/new_products_screen.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
         "changepass": (context) => const ChangePasswordPage(),
         "history": (context) => const OrdersHistoryScreen(),
         "historyproducts": (context) => const OrdersHistoryProductsScreen(),
+        "successcheckout": (context) => const SuccessCheckoutScreen(),
       },
     );
   }

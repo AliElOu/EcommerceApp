@@ -16,7 +16,7 @@ class OrdersListWidget extends StatelessWidget {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
+        padding: const EdgeInsets.fromLTRB(30, 70, 30, 0),
         child: Column(
           children: List.generate(
             ordershistorycontroller.ordersList.length,
