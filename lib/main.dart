@@ -15,10 +15,7 @@ import 'package:flutter_bootcamp/screens/Profile/orders_history_products_screen.
 import 'package:flutter_bootcamp/screens/Profile/orders_history_screen.dart';
 import 'package:flutter_bootcamp/screens/Profile/profile_screen.dart';
 import 'package:flutter_bootcamp/screens/favorits/favorits_screen.dart';
-import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'controllers/category_products_controller.dart';
-import 'controllers/Auth/signin_controller.dart';
 import 'screens/Auth/signin_screen.dart';
 import 'screens/Auth/signup_screen.dart';
 import 'screens/Onboarding/Onboarding_Screen.dart';
@@ -41,11 +38,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Ecommerce',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      initialRoute:(isFirstLaunch == 0 || isFirstLaunch == null)
+      initialRoute: (isFirstLaunch == 0 || isFirstLaunch == null)
           ? "onboarding"
           : prefs.getString("email") == null
               ? "login"

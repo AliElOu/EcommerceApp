@@ -31,12 +31,12 @@ class CustomNavbar extends StatelessWidget {
                   Navigator.pushNamed(context, "home");
                 },
                 icon: currentPage == MenuState.home
-                    ? SvgPicture.network(
-                        "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Shop%20Icon.svg",
+                    ? SvgPicture.asset(
+                        'assets/icons/shopicon.svg',
                         color: const Color(0xff52C560),
                       )
-                    : SvgPicture.network(
-                        "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Shop%20Icon.svg",
+                    : SvgPicture.asset(
+                      'assets/icons/shopicon.svg',
                         color: Colors.grey,
                       ),
                 hoverColor: Colors.transparent,
@@ -63,12 +63,12 @@ class CustomNavbar extends StatelessWidget {
                   Navigator.pushNamed(context, "favorits");
                 },
                 icon: currentPage == MenuState.favorite
-                    ? SvgPicture.network(
-                        "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon.svg",
+                    ? SvgPicture.asset(
+                        "assets/icons/hearticon.svg",
                         color: const Color(0xff52C560),
                       )
-                    : SvgPicture.network(
-                        "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon.svg",
+                    : SvgPicture.asset(
+                        "assets/icons/hearticon.svg",
                       ),
                 hoverColor: Colors.transparent,
                 splashColor: Colors.transparent,
@@ -94,12 +94,12 @@ class CustomNavbar extends StatelessWidget {
                   Navigator.pushNamed(context, "profile");
                 },
                 icon: currentPage == MenuState.profile
-                    ? SvgPicture.network(
-                        "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/User%20Icon.svg",
+                    ? SvgPicture.asset(
+                        "assets/icons/usericon.svg",
                         color: const Color(0xff52C560),
                       )
-                    : SvgPicture.network(
-                        "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/User%20Icon.svg"),
+                    : SvgPicture.asset(
+                        "assets/icons/usericon.svg"),
                 hoverColor: Colors.transparent,
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,

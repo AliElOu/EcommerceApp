@@ -80,6 +80,7 @@ class ResetPasswordPage extends StatelessWidget {
                               labeltext: "Mot de passe",
                               suffixicon: Icons.lock_outline,
                               controller: passcontroller,
+                              keyboardtype: TextInputType.visiblePassword,
                               validator: passvalidator,
                               isObscure: true),
                           const SizedBox(
@@ -90,6 +91,7 @@ class ResetPasswordPage extends StatelessWidget {
                               labeltext: "Confirmation de  mot de passe",
                               suffixicon: Icons.lock_outline,
                               controller: repasscontroller,
+                              keyboardtype: TextInputType.visiblePassword,
                               validator: (value) =>
                                   repassvalidator(value, passcontroller.text),
                               isObscure: true),

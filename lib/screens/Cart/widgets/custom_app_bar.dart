@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               Text("Your Cart",style: TextStyle(
+               Text("Votre Panier",style: TextStyle(
                 fontSize: 23,
                 fontFamily: "Kanit",
                 color: Colors.black.withOpacity(.7),
@@ -35,7 +35,7 @@ class CustomAppBar extends StatelessWidget {
               ),),
               GetBuilder<ProductPageController>(
                 builder: (controller) {
-                  return Text("${cartList.length} items",style: TextStyle(
+                  return Text("${cartList.length} articles",style: TextStyle(
                     fontSize: 15,
                     fontFamily: "Kanit",
                     color: Colors.black.withOpacity(.4),

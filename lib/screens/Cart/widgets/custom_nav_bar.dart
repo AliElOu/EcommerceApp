@@ -28,7 +28,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Total:",
+                "Totale:",
                 style: TextStyle(
                     fontFamily: "Kanit",
                     fontSize: 16,
@@ -43,7 +43,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                       total + cartList[i].quantity * cartList[i].product.price;
                 }
                 return Text(
-                  "\$${total.toStringAsFixed(2).toString()}",
+                  "${total.toStringAsFixed(2).toString()}Dh",
                   style: TextStyle(
                       fontFamily: "Kanit",
                       fontSize: 17,
@@ -74,7 +74,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                         foregroundColor: Colors.white,
                         backgroundColor: const Color(0xff52C560)),
                 child: const Text(
-                  "Check Out",
+                  "Commander",
                   style: TextStyle(fontSize: 18),
                 ),
                 onPressed: () {

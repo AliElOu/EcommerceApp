@@ -76,6 +76,7 @@ class ForgetPasswordPage extends StatelessWidget {
                               suffixicon: Icons.mail_outline,
                               controller: emailcontroller,
                               validator: emailvalidator,
+                              keyboardtype: TextInputType.emailAddress,
                               isObscure: false),
                           const SizedBox(height: 30),
                           Center(

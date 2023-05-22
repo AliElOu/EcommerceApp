@@ -22,7 +22,7 @@ class SearchBar extends StatelessWidget {
           },
         
           decoration: const InputDecoration(
-            hintText: "Search product",
+            hintText: "Chercher un produit",
             prefixIcon: Icon(Icons.search),
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,

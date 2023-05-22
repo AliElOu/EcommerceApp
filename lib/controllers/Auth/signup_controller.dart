@@ -12,7 +12,9 @@ class SignUpController extends GetxController {
   SignUpController(
       {required this.email,
       required this.pass,
+      required this.adresse,
       required this.username,
+      required this.phone,
       required this.key});
 
   Crud crud = Crud();
@@ -25,13 +27,15 @@ class SignUpController extends GetxController {
   late TextEditingController email;
   late TextEditingController pass;
   late TextEditingController username;
+  late TextEditingController adresse;
+  late TextEditingController phone;
 
   register(context) async {
     if (key.currentState!.validate()) {
       statusrequest = StatusRequest.loading;
       update();
       var response =
-          await signupdata.postData(username.text, pass.text, email.text);
+          await signupdata.postData(username.text, pass.text, email.text,adresse.text,phone.text);
       statusrequest = handlingData(response);
 
       if (statusrequest == StatusRequest.succes) {

@@ -44,7 +44,7 @@ class AddToCart extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20)),
                   foregroundColor: Colors.white,
                   backgroundColor: const Color(0xff52C560)),
-          child: const Text("Add to Chart"),
+          child: const Text("Ajouter au panier"),
           onPressed: () {
             controller.addToCart(products, isAlready, context);
           },

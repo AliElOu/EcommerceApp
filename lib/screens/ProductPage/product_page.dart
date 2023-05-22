@@ -23,29 +23,29 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffF4F4F8),
       body: SafeArea(
-          child: GetBuilder<ProductPageController>(id: "allpage",builder: (controller) {
-        return controller.statusrequest == StatusRequest.loading
-            ? SizedBox(
-                height: height - 30,
-                child: Center(
-                  child: Lottie.asset("assets/lottie/loading.json",
-                      width: 150, height: 150),
-                ))
-            : SingleChildScrollView(
-                child: Column(
-                  children: [
-                    ProductPageHeader(
-                      rating: products.rating,
-                    ),
-                    ProductImage(image: products.image, id: tag),
-                    const SizedBox(height: 25),
-                    ProductDetails(
-                      products: products,
-                    ),
-                  ],
-                ),
-              );
-      })),
+          child: GetBuilder<ProductPageController>(
+              id: "allpage",
+              builder: (controller) {
+                return controller.statusrequest == StatusRequest.loading
+                    ? SizedBox(
+                        height: height - 30,
+                        child: Center(
+                          child: Lottie.asset("assets/lottie/loading.json",
+                              width: 150, height: 150),
+                        ))
+                    : SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            const ProductPageHeader(),
+                            ProductImage(image: products.image, id: tag),
+                            const SizedBox(height: 25),
+                            ProductDetails(
+                              products: products,
+                            ),
+                          ],
+                        ),
+                      );
+              })),
     );
   }
 }

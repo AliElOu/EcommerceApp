@@ -14,7 +14,6 @@ class CartData {
     var payload = {
       'cart': cartList.map((item) => item.toJson()).toList(),
       'user_id': prefs.getString("id"),
-      'address': "blablabla",
     };
     var jsonData = json.encode(payload);
 

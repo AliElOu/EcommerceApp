@@ -32,7 +32,7 @@ class FavoritsScreen extends StatelessWidget {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: const Header(title: "Favorits"),
+        title: const Header(title: "Favoris"),
       ),
               body: HandlignDataView(
                 statusrequest:controller.statusrequest ,

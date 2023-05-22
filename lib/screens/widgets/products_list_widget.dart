@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../enums/menu_state.dart';
 import '../../models/products_model.dart';
 import '../Home/widgets/popular_products_list.dart';
-import 'header.dart';
 
 class ProductsListWidget extends StatelessWidget {
   final List<ProductsModel> productslist;
@@ -17,7 +15,7 @@ class ProductsListWidget extends StatelessWidget {
       
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
           child: GridView.builder(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,

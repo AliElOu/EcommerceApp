@@ -62,7 +62,7 @@ class Homepage extends StatelessWidget {
                           ),
                           const SizedBox(height: 5),
                           HomeProductsList(
-                            title: "New Products",
+                            title: "Nouveaux produits",
                             lnp: controller.listNewProducts,
                             Seemoremethod: () => Navigator.pushNamed(
                                 context, "newproducts",
@@ -70,7 +70,7 @@ class Homepage extends StatelessWidget {
                                     controller.listNewProducts)),
                           ),
                           HomeProductsList(
-                            title: "Popular Products",
+                            title: "Produits populaires",
                             lnp: controller.listNewProducts,
                             Seemoremethod: () => Navigator.pushNamed(
                                 context, "popproducts",

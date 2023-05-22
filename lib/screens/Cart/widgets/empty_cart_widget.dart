@@ -20,7 +20,7 @@ class EmptyCartWidget extends StatelessWidget {
               height: 25,
             ),
             const Text(
-              "Oops, there are no products in your cart",
+              "Oups, il n'y a aucun produit dans votre panier",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 25,
@@ -33,7 +33,7 @@ class EmptyCartWidget extends StatelessWidget {
               height: 8,
             ),
             const Text(
-              "Your cart is still empty, browse the attractive products from MyHealth",
+              "Votre panier est encore vide, parcourez les produits attractifs de MediShop",
               style: TextStyle(
                 color: Color.fromARGB(255, 133, 133, 133),
                 fontSize: 17,

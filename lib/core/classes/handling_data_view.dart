@@ -24,11 +24,11 @@ class HandlignDataView extends StatelessWidget {
                   width: 150, height: 150),
             ))
         : statusrequest == StatusRequest.failure
-            ? const TroubleWidget(text: "There is no menu that is looking for",image: "assets/images/no_data_ilustration.png",description: "It looks like there is no data available at the moment. Please try again later",)
+            ? const TroubleWidget(text: "Il n'y a pas de menu que vous recherchez",image: "assets/images/no_data_ilustration.png",description: "Il semble qu'il n'y ait pas de données disponibles pour le moment. Veuillez réessayer plus tard",)
             : statusrequest == StatusRequest.offlineFailure
-                ? const TroubleWidget(text: "Oops, there is no internet!",image: "assets/images/no_connection.png",description: "Please check your internet connection and refresh the page",)
+                ? const TroubleWidget(text: "Oups, il n'y a pas d'internet!",image: "assets/images/no_connection.png",description: "Veuillez vérifier votre connexion Internet et actualiser la page",)
                 : statusrequest == StatusRequest.serverFailure
-                    ? const Center(child: TroubleWidget(text: "Oops, there is no internet!",image: "assets/images/no_connection.png",description: "Please check your internet connection and refresh the page",))
+                    ? const Center(child: TroubleWidget(text: "Oups, il n'y a pas d'internet!",image: "assets/images/no_connection.png",description: "Veuillez vérifier votre connexion Internet et actualiser la page",))
                     : widget;
   }
 }

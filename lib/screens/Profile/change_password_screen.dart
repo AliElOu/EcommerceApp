@@ -77,6 +77,7 @@ class ChangePasswordPage extends StatelessWidget {
                               labeltext: "Mot de passe actuel",
                               suffixicon: Icons.lock_outline,
                               controller: actuelpasscontroller,
+                              keyboardtype: TextInputType.visiblePassword,
                               validator: changepassvalidator,
                               isObscure: true),
                           const SizedBox(
@@ -88,6 +89,7 @@ class ChangePasswordPage extends StatelessWidget {
                               suffixicon: Icons.lock_outline,
                               controller: passcontroller,
                               validator: changepassvalidator2,
+                              keyboardtype: TextInputType.visiblePassword,
                               isObscure: true),
                           const SizedBox(
                             height: 30,
@@ -97,6 +99,7 @@ class ChangePasswordPage extends StatelessWidget {
                               labeltext: "Confirmation de  mot de passe",
                               suffixicon: Icons.lock_outline,
                               controller: repasscontroller,
+                              keyboardtype: TextInputType.visiblePassword,
                               validator: (value) =>
                                   repassvalidator(value, passcontroller.text),
                               isObscure: true),

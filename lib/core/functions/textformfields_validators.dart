@@ -17,9 +17,12 @@ String? emailvalidator(value) {
 }
 
 
-String? passvalidator(value) {
+String? passvalidator(String? value) {
   if (value!.isEmpty) {
     return "*Champ Obligatoire!";
+  }
+  if(value.length < 8){
+    return "*Entrer plus de 8 caratères!";
   }
   return null;
 }
@@ -48,4 +51,42 @@ String? changepassvalidator2(value) {
     return "*Ce mot de passe est votre mot de passe actuel!";
   }
   return passvalidator(value);
+}
+
+
+
+String? usernamevalidator(String? value) {
+  if (value!.isEmpty) {
+    return "*Champ Obligatoire!";
+  }
+  if(value.length < 4){
+    return "*Nom d'utiliosateur est non valide!";
+  }
+  return null;
+}
+
+
+
+String? adressevalidator(value) {
+  if (value!.isEmpty) {
+    return "*Champ Obligatoire!";
+  }
+  return null;
+}
+
+
+String? phonevalidator(String? value) {
+  final bool phoneValid = RegExp(
+          r"^[0-9]*$")
+      .hasMatch(value!);
+  if (value.isEmpty) {
+    return "*Champ Obligatoire!";
+  }
+  if(!phoneValid){
+    return "*Ce champ n'accepte que des numéros!";
+  }
+  if(value.length < 10){
+    return "*numéro de téléphone est non valide!";
+  }
+  return null;
 }

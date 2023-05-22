@@ -21,7 +21,7 @@ class NewProductsScreen extends StatelessWidget {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: const Header(title: "New Products"),
+        title: const Header(title: "Nouveaux produits"),
       ),
       body: ProductsListWidget(
         productslist: poductslist,

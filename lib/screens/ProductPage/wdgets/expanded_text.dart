@@ -54,7 +54,7 @@ class expandedTextWidget extends StatelessWidget {
                   productController.toggleTextExpandation();
                 },
                 child: Text(
-                  "See ${productController.isExpanded ? "less Details <" : "more Details >"}",
+                  "Voir ${productController.isExpanded ? "moins de Details <" : "plus de Details >"}",
                   style: const TextStyle(
                       color: Color(0xff52C560),
                       fontSize: 14,

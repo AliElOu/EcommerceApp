@@ -24,27 +24,30 @@ class OrdersHistoryProductsScreen extends StatelessWidget {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: Padding(
+        title: const Padding(
           padding: EdgeInsets.only(top: 40),
-          child: const Header(title: "Détails du commande"),
+          child: Header(title: "Détails du commande"),
         ),
       ),
-      body: GetBuilder<OrderHistoryProductsController>(builder: (controller) {
-        return SmartRefresher(
-          controller: refreshController1,
-          onRefresh: () {
-            controller.handleRefresh(refreshController1, id);
-          },
-          child: SafeArea(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: HandlignDataView(
-                  statusrequest: controller.statusrequest,
-                  widget: const OrderProductsListWidget()),
+      body: GetBuilder<OrderHistoryProductsController>(
+        builder: (controller) {
+          return SmartRefresher(
+            controller: refreshController1,
+            onRefresh: () {
+              controller.handleRefresh(refreshController1, id);
+            },
+            child: SafeArea(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: HandlignDataView(
+                    statusrequest: controller.statusrequest,
+                    widget: const OrderProductsListWidget()),
+              ),
             ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
+      
     );
   }
 }

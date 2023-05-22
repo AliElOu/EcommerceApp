@@ -119,7 +119,6 @@ class ProductPageController extends GetxController {
     update();
     var response = await cartdata.postData();
     statusrequest = handlingData(response);
-    print(response);
     if (statusrequest == StatusRequest.succes) {
       update();
       Navigator.pushNamed(context, "successcheckout");

@@ -17,7 +17,7 @@ class Categories extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: Text(
-              "Medicine & Vitamins by Category",
+              "Médicaments et vitamines par catégorie",
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 17,

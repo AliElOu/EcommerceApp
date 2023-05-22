@@ -21,7 +21,7 @@ class PopProductsScreen extends StatelessWidget {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: const Header(title: "Popular Products"),
+        title: const Header(title: "Produits populaires"),
       ),
       body: ProductsListWidget(
            productslist: poductslist),

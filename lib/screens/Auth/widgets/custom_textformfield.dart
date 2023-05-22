@@ -8,6 +8,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final bool isObscure;
+  final TextInputType keyboardtype;
 
 
 
@@ -15,7 +16,7 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hinttext,
     required this.labeltext,
-    required this.suffixicon, required this.controller,  this.validator, required this.isObscure,
+    required this.suffixicon, required this.controller,  this.validator, required this.isObscure, required this.keyboardtype,
   });
 
   @override
@@ -24,19 +25,20 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       validator: validator,
       obscureText: isObscure,
+      keyboardType: keyboardtype,
       decoration: InputDecoration(
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
         labelText: labeltext,
         hintStyle: const TextStyle(
           fontFamily: 'os',
-          fontSize: 15,
+          fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         hintText: hinttext,
         labelStyle: const TextStyle(
           fontFamily: 'os',
-          fontSize: 17,
+          fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
         suffixIcon:  Padding(

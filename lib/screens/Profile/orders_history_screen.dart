@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/screens/Profile/widgets/orders_list_widget.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../controllers/profile/orders_histroy_controller.dart';
 import '../../core/classes/handling_data_view.dart';
+import '../../enums/status_request.dart';
 import '../widgets/header.dart';
 
 class OrdersHistoryScreen extends StatelessWidget {
@@ -14,6 +16,7 @@ class OrdersHistoryScreen extends StatelessWidget {
     RefreshController refreshController1 =
         RefreshController(initialRefresh: true);
     Get.put(OrdersHistoryController());
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
           toolbarHeight: 62,
@@ -30,10 +33,10 @@ class OrdersHistoryScreen extends StatelessWidget {
           onRefresh: () {
             controller.handleRefresh(refreshController1);
           },
-          child: HandlignDataView(
-            statusrequest: controller.statusrequest,
-            widget: const OrdersListWidget(),
-          ),
+          child:HandlignDataView(
+                  statusrequest: controller.statusrequest,
+                  widget: const OrdersListWidget(),
+                ),
         );
       }),
     );

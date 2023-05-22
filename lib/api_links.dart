@@ -18,6 +18,7 @@ class AppLinks {
   static const String checkout= "$server/checkout.php";
   static const String ordersHistory= "$server/orders_history.php";
   static const String ordersHistoryProducts= "$server/orders_history_products.php";
+  static const String cancelOrder= "$server/cancel_order.php";
 
 
 

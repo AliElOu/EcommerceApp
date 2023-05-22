@@ -33,12 +33,12 @@ class CartProductsList extends StatelessWidget {
               child: Row(
                 children: [
                   const Spacer(),
-                  SvgPicture.network(
-                      "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Trash.svg"),
+                  SvgPicture.asset(
+                      "assets/icons/Trash.svg"),
                 ],
               ),
             ),
-            child: Container(
+            child: SizedBox(
               height: 120,
               width: double.maxFinite,
               child: Row(
@@ -70,7 +70,7 @@ class CartProductsList extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "\$${cartList[index].product.price}",
+                            "${cartList[index].product.price}Dh",
                             style: const TextStyle(
                                 fontFamily: "ubuntu",
                                 fontWeight: FontWeight.bold,

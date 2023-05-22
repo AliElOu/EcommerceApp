@@ -14,5 +14,12 @@ class OrdersHistroyData {
     });
     return response.fold((l) => l, (r) => r) ;
   }
+
+  dropData(String orderId) async{
+    var response = await crud.postData(AppLinks.cancelOrder, {
+      "orderId" : orderId
+    });
+    return response.fold((l) => l, (r) => r) ;
+  }
   
 }

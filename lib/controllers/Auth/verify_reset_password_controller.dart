@@ -23,7 +23,7 @@ class VerifyResetPasswordController extends GetxController {
     statusrequest = handlingData(response);
     if (statusrequest == StatusRequest.succes) {
       update();
-      Navigator.pushNamedAndRemoveUntil(context, "resetpassword", (route) => false,arguments: OTPverificationArguments(email));
+      Navigator.pushReplacementNamed(context, "resetpassword",arguments: OTPverificationArguments(email));
     } else if (statusrequest == StatusRequest.failure) {
       update();
       AwesomeDialog(

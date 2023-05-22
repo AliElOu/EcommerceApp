@@ -15,7 +15,7 @@ class OrderProductsListWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 60),
       child: Column(children: [
         Text(
-          "Total : \$${ordershistoryproductscontroller.total}",
+          "Total : ${ordershistoryproductscontroller.total}Dh",
           style: const TextStyle(
               fontSize: 25, fontFamily: "os", fontWeight: FontWeight.bold),
         ),
@@ -63,7 +63,7 @@ class OrderProductsListWidget extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                              "\$${ordershistoryproductscontroller.productsList[index].price}",
+                              "${ordershistoryproductscontroller.productsList[index].price}Dh",
                               style: const TextStyle(
                                 fontFamily: "ubuntu",
                                 fontWeight: FontWeight.bold,

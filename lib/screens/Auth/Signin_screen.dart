@@ -76,6 +76,7 @@ class SigninScreen extends StatelessWidget {
                             suffixicon: Icons.mail_outline,
                             controller: emailcontroller,
                             validator: emailvalidator,
+                            keyboardtype: TextInputType.emailAddress,
                             isObscure: false,
                           ),
                           const SizedBox(
@@ -87,6 +88,7 @@ class SigninScreen extends StatelessWidget {
                             suffixicon: Icons.lock,
                             controller: passcontroller,
                             isObscure: true,
+                            keyboardtype: TextInputType.visiblePassword,
                             validator: passvalidator,
                           ),
                           const SizedBox(
@@ -98,17 +100,18 @@ class SigninScreen extends StatelessWidget {
                               Row(
                                 children: [
                                   GetBuilder<SignInController>(
-                                      id: "rememberme",
-                                      builder: (controller) {
-                                        return Checkbox(
-                                          value: controller.isCheked,
-                                          onChanged: (value) {
-                                            controller.changeRememberMe();
-                                          },
-                                        );
-                                      }),
+                                    id: "rememberme",
+                                    builder: (controller) {
+                                      return Checkbox(
+                                        value: controller.isCheked,
+                                        onChanged: (value) {
+                                          controller.changeRememberMe();
+                                        },
+                                      );
+                                    },
+                                  ),
                                   const Text(
-                                    'Remember me',
+                                    'Se souvenir',
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontFamily: "Lato",
@@ -124,7 +127,7 @@ class SigninScreen extends StatelessWidget {
                                       context, "forgetpassword");
                                 },
                                 child: const Text(
-                                  "Forgot password",
+                                  "Mot de passe oublié",
                                   style: TextStyle(
                                     fontFamily: "os",
                                     fontWeight: FontWeight.w600,
@@ -139,7 +142,7 @@ class SigninScreen extends StatelessWidget {
                             height: 37,
                           ),
                           CustomButton(
-                              text: "Continue",
+                              text: "Continuer",
                               onpressed: () {
                                 signincontroller.login(context);
                               }),
@@ -150,12 +153,12 @@ class SigninScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
-                                'D\'ont have an account?',
+                                'Vous n\'avez pas de compte?',
                                 style: TextStyle(
                                   fontFamily: 'op',
                                   fontWeight: FontWeight.w500,
                                   color: Colors.grey,
-                                  fontSize: 17,
+                                  fontSize: 15,
                                 ),
                               ),
                               GestureDetector(
@@ -163,7 +166,7 @@ class SigninScreen extends StatelessWidget {
                                   Navigator.pushNamed(context, 'register');
                                 },
                                 child: const Text(
-                                  ' Sign Up',
+                                  ' S\'enregistrer',
                                   style: TextStyle(
                                     fontFamily: 'op',
                                     fontWeight: FontWeight.w500,
