@@ -5,14 +5,11 @@ import 'package:get/get.dart';
 import '../../../enums/status_request.dart';
 import '../../../models/cart_model.dart';
 
-class CustomNavBar extends StatefulWidget {
-  const CustomNavBar({super.key});
+class CustomNavBar extends StatelessWidget {
+  final String btnText;
+  final VoidCallback onpressed;
+  const CustomNavBar({super.key, required this.btnText, required this.onpressed});
 
-  @override
-  State<CustomNavBar> createState() => _CustomNavBarState();
-}
-
-class _CustomNavBarState extends State<CustomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,11 +34,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                     color: Colors.black.withOpacity(.4)),
               ),
               GetBuilder<ProductPageController>(builder: (controller) {
-                double total = 0;
-                for (int i = 0; i < cartList.length; i++) {
-                  total =
-                      total + cartList[i].quantity * cartList[i].product.price;
-                }
+                double total = controller.getTotal();
                 return Text(
                   "${total.toStringAsFixed(2).toString()}Dh",
                   style: TextStyle(
@@ -73,15 +66,11 @@ class _CustomNavBarState extends State<CustomNavBar> {
                             borderRadius: BorderRadius.circular(20)),
                         foregroundColor: Colors.white,
                         backgroundColor: const Color(0xff52C560)),
-                child: const Text(
-                  "Commander",
-                  style: TextStyle(fontSize: 18),
+                onPressed:  onpressed ,
+                child:  Text(
+                  btnText,
+                  style: const TextStyle(fontSize: 18),
                 ),
-                onPressed: () {
-                  if(cartList.isNotEmpty && controller.statusrequest != StatusRequest.loading){
-                    controller.checkout(context);
-                  }
-                },
               );
             }
           ),

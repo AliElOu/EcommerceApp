@@ -17,7 +17,7 @@ class HomeController extends GetxController {
   List<ProductsModel> listNewProducts = [];
 
   late StatusRequest statusRequest;
-
+  late int listL;
   getData() async {
     statusRequest = StatusRequest.loading;
     var response = await homeData.getData(prefs.getString("id")!);
@@ -30,31 +30,34 @@ class HomeController extends GetxController {
       for (Map item in response['data']['newProd']) {
         listNewProducts.add(ProductsModel.fromJson(item));
       }
+      listL = listNewProducts.length;
+      if (listNewProducts.length > 5) {
+        listL = 5;
+      }
     }
     update();
   }
 
-
-   StatusRequest? statusRequest2;
+  StatusRequest? statusRequest2;
   List<ProductsModel> listSearchedProducts = [];
 
-  getSearch(String name) async{
-    if(name == ""){
+  getSearch(String name) async {
+    if (name == "") {
       update();
-    }else{
+    } else {
       listSearchedProducts.clear();
-    statusRequest2 = StatusRequest.loading;
-    update();
-    update(["search"]);
-    var response = await homeData.getSearch(name);
-    statusRequest2 = handlingData(response);
-    if (statusRequest2 == StatusRequest.succes) {
-      for (Map item in response['data']) {
-        listSearchedProducts.add(ProductsModel.fromJson(item));
+      statusRequest2 = StatusRequest.loading;
+      update();
+      update(["search"]);
+      var response = await homeData.getSearch(name);
+      statusRequest2 = handlingData(response);
+      if (statusRequest2 == StatusRequest.succes) {
+        for (Map item in response['data']) {
+          listSearchedProducts.add(ProductsModel.fromJson(item));
+        }
       }
+      update(["search"]);
     }
-    update(["search"]);
-    }  
   }
 
   @override

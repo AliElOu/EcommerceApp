@@ -85,7 +85,7 @@ String? phonevalidator(String? value) {
   if(!phoneValid){
     return "*Ce champ n'accepte que des numéros!";
   }
-  if(value.length < 10){
+  if(value.length != 10){
     return "*numéro de téléphone est non valide!";
   }
   return null;

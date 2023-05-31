@@ -6,6 +6,7 @@ import 'package:flutter_bootcamp/screens/Auth/resetpassword_screen.dart';
 import 'package:flutter_bootcamp/screens/Auth/verify_account_screen.dart';
 import 'package:flutter_bootcamp/screens/Auth/verify_reset_password_screen.dart';
 import 'package:flutter_bootcamp/screens/Cart/cart_page.dart';
+import 'package:flutter_bootcamp/screens/Cart/checkout_page.dart';
 import 'package:flutter_bootcamp/screens/Cart/succes_checkout_screen.dart';
 import 'package:flutter_bootcamp/screens/Category/category_products_list.dart';
 import 'package:flutter_bootcamp/screens/Home/home_screen.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
         "home": (context) => const Homepage(),
         "product": (context) => const ProductPage(),
         "cart": (context) => const CartPage(),
+        "checkout": (context) => const CheckoutPage(),
         "favorits": (context) => const FavoritsScreen(),
         "newproducts": (context) => const NewProductsScreen(),
         "popproducts": (context) => const PopProductsScreen(),

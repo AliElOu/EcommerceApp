@@ -48,6 +48,8 @@ dependencies:
   shared_preferences: ^2.1.1
   top_snackbar_flutter: ^3.0.0+1
   toasty_snackbar: ^0.0.1
+  flutter_paypal: ^0.2.0
+
 
   
 

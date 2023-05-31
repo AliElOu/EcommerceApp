@@ -10,10 +10,12 @@ class CartData {
   Crud crud;
   CartData(this.crud);
 
-  postData() async {
+  postData(String sa,String phone) async {
     var payload = {
       'cart': cartList.map((item) => item.toJson()).toList(),
       'user_id': prefs.getString("id"),
+      'shipping_address' : sa,
+      'phone' : phone,
     };
     var jsonData = json.encode(payload);
 

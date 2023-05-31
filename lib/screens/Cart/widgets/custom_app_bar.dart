@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 import '../../../models/cart_model.dart';
 
 class CustomAppBar extends StatelessWidget {
+  final String title;
   const CustomAppBar({
-    super.key,
+    super.key, required this.title,
   });
 
   @override
@@ -27,7 +28,7 @@ class CustomAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               Text("Votre Panier",style: TextStyle(
+               Text(title,style: TextStyle(
                 fontSize: 23,
                 fontFamily: "Kanit",
                 color: Colors.black.withOpacity(.7),

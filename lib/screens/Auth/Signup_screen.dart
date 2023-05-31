@@ -37,7 +37,7 @@ class SignupScreen extends StatelessWidget {
         child: GetBuilder<SignUpController>(builder: (controller) {
           return controller.statusrequest == StatusRequest.loading
               ? SizedBox(
-                  height: height - 30,
+                  height: height - 15,
                   child: Center(
                     child: Lottie.asset("assets/lottie/loading.json",
                         width: 150, height: 150),
@@ -52,9 +52,7 @@ class SignupScreen extends StatelessWidget {
                           const Header(
                             title: "S'inscrire",
                           ),
-                          Container(
-                            height: 70,
-                          ),
+                          const SizedBox(height: 20),
                           const AppLogo(
                             scale: 2.5,
                           ),
@@ -83,7 +81,7 @@ class SignupScreen extends StatelessWidget {
                               keyboardtype: TextInputType.name,
                               isObscure: false),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           CustomTextFormField(
                               hinttext: "Entrer votre email",
@@ -94,7 +92,7 @@ class SignupScreen extends StatelessWidget {
                               keyboardtype: TextInputType.emailAddress,
                               isObscure: false),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           CustomTextFormField(
                               hinttext: "Entrer votre numéro de téléphone",
@@ -105,7 +103,7 @@ class SignupScreen extends StatelessWidget {
                               keyboardtype: TextInputType.number,
                               isObscure: false),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           CustomTextFormField(
                               hinttext: "Entrer votre adresse de résidence",
@@ -116,7 +114,7 @@ class SignupScreen extends StatelessWidget {
                               keyboardtype: TextInputType.streetAddress,
                               isObscure: false),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           CustomTextFormField(
                               hinttext: "Enter votre mot de passe",
@@ -127,7 +125,7 @@ class SignupScreen extends StatelessWidget {
                               keyboardtype: TextInputType.visiblePassword,
                               isObscure: true),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           CustomTextFormField(
                               hinttext: "Confirmez votre mot de passe",
@@ -139,7 +137,7 @@ class SignupScreen extends StatelessWidget {
                                   repassvalidator(value, passcontroller.text),
                               isObscure: true),
                           const SizedBox(
-                            height: 40,
+                            height: 30,
                           ),
                           CustomButton(
                               text: "Continuer",
@@ -159,6 +157,4 @@ class SignupScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

@@ -49,7 +49,7 @@ class SuccessCheckoutScreen extends StatelessWidget {
                 height: 80,
               ),
               CustomButton(
-                text: "Back to home",
+                text: "Retour à l'accueil",
                 onpressed: () => Navigator.pushNamedAndRemoveUntil(
                     context, "home", (route) => false),
               )

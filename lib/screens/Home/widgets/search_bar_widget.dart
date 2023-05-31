@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../controllers/home_controller.dart';
 
 
-class SearchBar extends StatelessWidget {
+class SearchBarr extends StatelessWidget {
   final HomeController hc;
-  const SearchBar({super.key,required this.hc});
+  const SearchBarr({super.key,required this.hc});
 
   @override
   Widget build(BuildContext context) {

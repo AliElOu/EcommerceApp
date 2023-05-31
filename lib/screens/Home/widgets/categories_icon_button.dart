@@ -25,7 +25,7 @@ class CustomCategoryIconButton extends StatelessWidget {
             title,
             style: const TextStyle(
                 color: Colors.black,
-                fontSize: 13,
+                fontSize: 12,
                 fontFamily: "os",
                 height: 1.1),
             textAlign: TextAlign.center,

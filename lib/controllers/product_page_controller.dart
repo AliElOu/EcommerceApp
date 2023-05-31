@@ -14,17 +14,27 @@ import '../remote/Auth/insert_favoris_data.dart';
 import '../remote/cart_data.dart';
 
 class ProductPageController extends GetxController {
-  int selectedImage = 0;
+  int selectedPayment = 0;
   int selectedQuantity = 0;
   int selectedColor = 0;
   bool isExpanded = false;
   bool isExpandable = false;
+  bool isEditable = true;
 
   StatusRequest? statusrequest;
   Crud crud = Crud();
   late InsertFavorisData insertfavorisdata = InsertFavorisData(crud);
   late DeleteFavorisData deletefavorisdata = DeleteFavorisData(crud);
   late CartData cartdata = CartData(crud);
+
+  
+  double getTotal() {
+    double total = 0;
+    for (int i = 0; i < cartList.length; i++) {
+      total = total + cartList[i].quantity * cartList[i].product.price;
+    }
+    return total;
+  }
 
   void toggleFavorite(ProductsModel products, BuildContext context,
       [bool sb = true]) async {
@@ -94,9 +104,15 @@ class ProductPageController extends GetxController {
     update();
   }
 
-  void changeSelectedImage(int index) {
-    selectedImage = index;
-    update();
+  void toggleEditing() {
+    print("object");
+    isEditable = false;
+    update(["infos"]);
+  }
+
+  void changeSelectedPayment(int index) {
+    selectedPayment = index;
+    update(["payment"]);
   }
 
   void addToCart(ProductsModel products, bool isAlready, context) {
@@ -112,27 +128,26 @@ class ProductPageController extends GetxController {
     update();
   }
 
-
-
-  checkout(context) async {
+  checkout(context, String sa, String phone) async {
     statusrequest = StatusRequest.loading;
     update();
-    var response = await cartdata.postData();
+    var response = await cartdata.postData(sa, phone);
     statusrequest = handlingData(response);
+    print(statusrequest);
     if (statusrequest == StatusRequest.succes) {
       update();
       Navigator.pushNamed(context, "successcheckout");
       cartList.clear();
-    }else if(statusrequest == StatusRequest.failure){
+    } else if (statusrequest == StatusRequest.failure) {
       update();
       AwesomeDialog(
-          context: context,
-          dialogType: DialogType.error,
-          animType: AnimType.rightSlide,
-          title: 'Erreur',
-          desc: "Un des produits n'est plus en stock!",
-          btnCancelOnPress: () {},
-        ).show();
+        context: context,
+        dialogType: DialogType.error,
+        animType: AnimType.rightSlide,
+        title: 'Erreur',
+        desc: "Un des produits n'est plus en stock!",
+        btnCancelOnPress: () {},
+      ).show();
     }
   }
 }

@@ -10,7 +10,6 @@ class ProductImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ProductPageController productController = Get.find<ProductPageController>();
-    productController.selectedImage = 0;
     productController.selectedQuantity = 0;
     productController.selectedColor = 0;
     productController.isExpanded = false;

@@ -28,7 +28,7 @@ class listHeader extends StatelessWidget {
             GestureDetector(
               onTap: () {SeeMoreMethod();},
               child: const Text(
-                "See more",
+                "Voir plus",
                 style: TextStyle(
                   color: Color.fromARGB(146, 158, 158, 158),
                   fontSize: 13.5,

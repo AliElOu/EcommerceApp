@@ -35,7 +35,7 @@ class Homepage extends StatelessWidget {
           children: [
             const Customappbar(),
             const SizedBox(height: 5),
-            SearchBar(
+            SearchBarr(
               hc: homecontroller,
             ),
           ],

@@ -73,7 +73,7 @@ class SearchedProductsList extends StatelessWidget {
                                     height: 5,
                                   ),
                                   Text(
-                                      "${controller.listSearchedProducts[index].price} \$",
+                                      "${controller.listSearchedProducts[index].price}Dh",
                                       style: const TextStyle(
                                         fontSize: 15,
                                         color: Colors.grey,
@@ -81,24 +81,7 @@ class SearchedProductsList extends StatelessWidget {
                                   const SizedBox(
                                     height: 5,
                                   ),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        controller
-                                            .listSearchedProducts[index].rating
-                                            .toString(),
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                      const Icon(
-                                        Icons.star,
-                                        size: 15,
-                                        color: Colors.yellow,
-                                      ),
-                                    ],
-                                  ),
+                                  
                                 ],
                               ),
                             ],
