@@ -4,6 +4,7 @@ import "package:flutter_bootcamp/enums/menu_state.dart";
 import "package:flutter_bootcamp/screens/Home/widgets/popular_products.dart";
 import "package:get/get.dart";
 import "package:pull_to_refresh/pull_to_refresh.dart";
+import "../../controllers/cart_controller.dart";
 import "../../controllers/home_controller.dart";
 import "../../core/classes/handling_data_view.dart";
 import "../../enums/status_request.dart";
@@ -21,6 +22,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeController homecontroller = Get.put(HomeController());
     Get.put(ProductPageController());
+    Get.put(CartController());
     RefreshController refreshController1 =
         RefreshController(initialRefresh: false);
     return Scaffold(

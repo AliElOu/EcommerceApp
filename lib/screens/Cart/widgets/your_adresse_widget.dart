@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../controllers/cart_controller.dart';
 import '../../../controllers/product_page_controller.dart';
 import '../../../core/functions/textformfields_validators.dart';
 import '../../../main.dart';
@@ -15,9 +16,9 @@ class YourAdressetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductPageController productpagecontroller =
-        Get.find<ProductPageController>();
-        productpagecontroller.isEditable = true;
+    CartController cartcontroller =
+        Get.find<CartController>();
+        cartcontroller.isEditable = true;
     
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -37,7 +38,7 @@ class YourAdressetWidget extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  productpagecontroller.toggleEditing();
+                  cartcontroller.toggleEditing();
                 },
                 child: const Text(
                   "Changer l'information",
@@ -51,7 +52,7 @@ class YourAdressetWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 7),
-          GetBuilder<ProductPageController>(
+          GetBuilder<CartController>(
               id: "infos",
               builder: (controller) {
                 return Form(

@@ -27,15 +27,6 @@ class ProductPageController extends GetxController {
   late DeleteFavorisData deletefavorisdata = DeleteFavorisData(crud);
   late CartData cartdata = CartData(crud);
 
-  
-  double getTotal() {
-    double total = 0;
-    for (int i = 0; i < cartList.length; i++) {
-      total = total + cartList[i].quantity * cartList[i].product.price;
-    }
-    return total;
-  }
-
   void toggleFavorite(ProductsModel products, BuildContext context,
       [bool sb = true]) async {
     if (products.isFavorit == false) {
@@ -80,10 +71,6 @@ class ProductPageController extends GetxController {
     update();
   }
 
-  void selectColor(index) {
-    selectedColor = index;
-    update();
-  }
 
   void incrementQuantity(quant) {
     if (selectedQuantity < quant) {
@@ -104,16 +91,7 @@ class ProductPageController extends GetxController {
     update();
   }
 
-  void toggleEditing() {
-    print("object");
-    isEditable = false;
-    update(["infos"]);
-  }
-
-  void changeSelectedPayment(int index) {
-    selectedPayment = index;
-    update(["payment"]);
-  }
+  
 
   void addToCart(ProductsModel products, bool isAlready, context) {
     if (selectedQuantity != 0 && !isAlready) {
@@ -128,26 +106,5 @@ class ProductPageController extends GetxController {
     update();
   }
 
-  checkout(context, String sa, String phone) async {
-    statusrequest = StatusRequest.loading;
-    update();
-    var response = await cartdata.postData(sa, phone);
-    statusrequest = handlingData(response);
-    print(statusrequest);
-    if (statusrequest == StatusRequest.succes) {
-      update();
-      Navigator.pushNamed(context, "successcheckout");
-      cartList.clear();
-    } else if (statusrequest == StatusRequest.failure) {
-      update();
-      AwesomeDialog(
-        context: context,
-        dialogType: DialogType.error,
-        animType: AnimType.rightSlide,
-        title: 'Erreur',
-        desc: "Un des produits n'est plus en stock!",
-        btnCancelOnPress: () {},
-      ).show();
-    }
-  }
+ 
 }

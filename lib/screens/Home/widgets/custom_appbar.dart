@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
 
+import '../../../controllers/cart_controller.dart';
 import '../../widgets/app_logo.dart';
 import 'custom_icon_button.dart';
 

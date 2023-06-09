@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/controllers/cart_controller.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -15,8 +16,6 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductPageController productpagecontroller =
-        Get.find<ProductPageController>();
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -26,6 +25,7 @@ class CartPage extends StatelessWidget {
           automaticallyImplyLeading: false,
           toolbarHeight: 100,
           title: const CustomAppBar(
+            
             title: "Votre Panier",
           )),
       body: SafeArea(
@@ -44,6 +44,7 @@ class CartPage extends StatelessWidget {
         );
       })),
       bottomNavigationBar: CustomNavBar(
+        cntrlr: "cart",
         btnText: "Commander",
         onpressed: () {
           print("hi");

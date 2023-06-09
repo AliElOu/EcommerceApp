@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/controllers/cart_controller.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/product_page_controller.dart';
@@ -19,11 +20,11 @@ class PaymentMehodsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 22),
+        const Padding(
+          padding:  EdgeInsets.symmetric(horizontal: 22),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children:  [
               Text(
                 "Méthodes de payement",
                 style: TextStyle(
@@ -47,7 +48,7 @@ class PaymentMehodsWidget extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 12),
-                child: GetBuilder<ProductPageController>(
+                child: GetBuilder<CartController>(
                     id: "payment",
                     builder: (controller) {
                       return GestureDetector(

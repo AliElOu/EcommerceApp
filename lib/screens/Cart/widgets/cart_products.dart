@@ -3,6 +3,7 @@ import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../../controllers/cart_controller.dart';
 import '../../../models/cart_model.dart';
 
 class CartProductsList extends StatelessWidget {
@@ -10,7 +11,7 @@ class CartProductsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductPageController productController = Get.find<ProductPageController>();
+    ProductPageController productpagecontroller = Get.find<ProductPageController>();
     return Column(
       children: List.generate(
         cartList.length,
@@ -21,7 +22,7 @@ class CartProductsList extends StatelessWidget {
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               if (index <= cartList.length) {
-                productController.removeFromCart(cartList[index]);
+                productpagecontroller.removeFromCart(cartList[index]);
               }
             },
             background: Container(

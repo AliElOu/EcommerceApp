@@ -13,11 +13,8 @@ class CategoryProductsController extends GetxController {
 
   List<ProductsModel> listCatProducts = [];
 
-   StatusRequest? statusrequest;
+  StatusRequest? statusrequest;
 
-  
-
-  
   getData(String catid) async {
     statusrequest = StatusRequest.loading;
     var response = await categoryProductsData.postData(catid);
@@ -31,11 +28,7 @@ class CategoryProductsController extends GetxController {
     }
   }
 
-
-
-
-
-  Future<void> handleRefresh(RefreshController rc,String catid) async {
+  Future<void> handleRefresh(RefreshController rc, String catid) async {
     listCatProducts.clear();
 
     update();
