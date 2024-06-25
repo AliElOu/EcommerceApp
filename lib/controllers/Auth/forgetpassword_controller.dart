@@ -14,7 +14,7 @@ class ForgetPasswordController extends GetxController {
   Crud crud = Crud();
   late ForgetPasswordData forgetpassworddata = ForgetPasswordData(crud);
 
-   StatusRequest? statusrequest;
+  StatusRequest? statusrequest;
 
   late GlobalKey<FormState> key;
 
@@ -29,7 +29,7 @@ class ForgetPasswordController extends GetxController {
 
       if (statusrequest == StatusRequest.succes) {
         update();
-        Navigator.pushNamed(context, "verifyresetpassword",
+        Get.toNamed("/verifyresetpassword",
             arguments: OTPverificationArguments(email.text));
       } else if (statusrequest == StatusRequest.failure) {
         update();
@@ -45,5 +45,3 @@ class ForgetPasswordController extends GetxController {
     }
   }
 }
-
-

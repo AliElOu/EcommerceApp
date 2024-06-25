@@ -20,7 +20,7 @@ class SignUpController extends GetxController {
   Crud crud = Crud();
   late SignUpData signupdata = SignUpData(crud);
 
-   StatusRequest? statusrequest;
+  StatusRequest? statusrequest;
 
   late GlobalKey<FormState> key;
 
@@ -34,16 +34,14 @@ class SignUpController extends GetxController {
     if (key.currentState!.validate()) {
       statusrequest = StatusRequest.loading;
       update();
-      var response =
-          await signupdata.postData(username.text, pass.text, email.text,adresse.text,phone.text);
+      var response = await signupdata.postData(
+          username.text, pass.text, email.text, adresse.text, phone.text);
       statusrequest = handlingData(response);
 
       if (statusrequest == StatusRequest.succes) {
         update();
-        Navigator.pushNamed(
-            context, "verifyaccount",
+        Get.toNamed("/verifyaccount",
             arguments: OTPverificationArguments(email.text));
-            
       } else if (statusrequest == StatusRequest.failure) {
         update();
         AwesomeDialog(
@@ -55,9 +53,6 @@ class SignUpController extends GetxController {
           btnCancelOnPress: () {},
         ).show();
       }
-      
     }
   }
-
-  
 }

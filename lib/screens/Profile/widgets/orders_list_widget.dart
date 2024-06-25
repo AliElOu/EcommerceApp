@@ -67,7 +67,7 @@ class OrdersListWidget extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, "historyproducts",
+                              Get.toNamed("/historyproducts",
                                   arguments: OrdersHistoryProductsArguments(
                                       ordershistorycontroller
                                           .ordersList[index].id));
@@ -85,22 +85,24 @@ class OrdersListWidget extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 2),
-                  if(ordershistorycontroller.ordersList[index].status == "0")
+                  if (ordershistorycontroller.ordersList[index].status == "0")
                     GestureDetector(
-                    onTap: () {
-                      ordershistorycontroller.dropOrder(ordershistorycontroller.ordersList[index].id,context);
-                    },
-                    child: Container(
-                      alignment: Alignment.centerRight,
-                      child: const Text(
-                        "Annuler la commande",
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 19,
-                            fontFamily: "Kanit"),
+                      onTap: () {
+                        ordershistorycontroller.dropOrder(
+                            ordershistorycontroller.ordersList[index].id,
+                            context);
+                      },
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        child: const Text(
+                          "Annuler la commande",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 19,
+                              fontFamily: "Kanit"),
+                        ),
                       ),
                     ),
-                  ),
                   const SizedBox(height: 3),
                   const Divider(
                     color: Colors.black,

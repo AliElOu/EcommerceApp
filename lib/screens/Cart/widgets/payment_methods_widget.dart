@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 import 'package:flutter_bootcamp/controllers/cart_controller.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/product_page_controller.dart';
 
 List<String> pymnt = [
-  "assets/images/mastercard.png",
-  "assets/images/cod.png",
-  "assets/images/visa.png",
-  "assets/images/paypal.png",
-  "assets/images/google-pay.png",
-  "assets/images/apple-pay.png",
+  "mastercard.png",
+  "cod.png",
+  "visa.png",
+  "paypal.png",
+  "google-pay.png",
+  "apple-pay.png",
 ];
 
 class PaymentMehodsWidget extends StatelessWidget {
@@ -62,7 +62,7 @@ class PaymentMehodsWidget extends StatelessWidget {
                             color: const Color(0xffEDEEF1),
                           ),
                           padding: const EdgeInsets.all(15),
-                          child: Image.asset(pymnt[index]),
+                          child: Image.network("${AppLinks.images}${pymnt[index]}"),
                         ),
                       );
                     }),

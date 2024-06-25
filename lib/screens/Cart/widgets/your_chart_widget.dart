@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 import 'package:flutter_bootcamp/models/cart_model.dart';
 
 class YourChartWidget extends StatelessWidget {
@@ -39,7 +40,7 @@ class YourChartWidget extends StatelessWidget {
                     color: const Color(0xffEDEEF1),
                   ),
                   padding: const EdgeInsets.all(13),
-                  child: Image.asset(cartList[index].product.image),
+                  child: Image.network("${AppLinks.images}${cartList[index].product.image}"),
                 ),
               );
             },

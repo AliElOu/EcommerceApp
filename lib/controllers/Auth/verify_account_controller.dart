@@ -29,7 +29,7 @@ class VerifyAccountController extends GetxController {
         title: 'Votre compte à été vérifié avec succes',
         desc: 'Retournez vous à la page de connection pour se connecter!',
         btnOkOnPress: () {
-          Navigator.pop(context);
+          Get.back();
         },
       ).show();
     } else if (statusrequest == StatusRequest.failure) {

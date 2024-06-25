@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_bootcamp/controllers/product_page_controller.dart";
 import "package:flutter_bootcamp/enums/menu_state.dart";
 import "package:flutter_bootcamp/screens/Home/widgets/popular_products.dart";
+import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:get/get.dart";
 import "package:pull_to_refresh/pull_to_refresh.dart";
 import "../../controllers/cart_controller.dart";
@@ -31,7 +32,7 @@ class Homepage extends StatelessWidget {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        toolbarHeight: 150,
+        toolbarHeight: 150.w,
         title: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -52,11 +53,11 @@ class Homepage extends StatelessWidget {
                   onRefresh: () {
                     controller.handleRefresh(refreshController1);
                   },
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
-                    child: HandlignDataView(
-                      statusrequest: controller.statusRequest,
-                      widget: Column(
+                  child: HandlignDataView(
+                    statusrequest: controller.statusRequest,
+                    widget: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Column(
                         children: [
                           const SizedBox(height: 15),
                           Categories(
@@ -66,16 +67,14 @@ class Homepage extends StatelessWidget {
                           HomeProductsList(
                             title: "Nouveaux produits",
                             lnp: controller.listNewProducts,
-                            Seemoremethod: () => Navigator.pushNamed(
-                                context, "newproducts",
+                            Seemoremethod: () => Get.toNamed("/newproducts",
                                 arguments: ProductslistArguments(
                                     controller.listNewProducts)),
                           ),
                           HomeProductsList(
                             title: "Produits populaires",
                             lnp: controller.listNewProducts,
-                            Seemoremethod: () => Navigator.pushNamed(
-                                context, "popproducts",
+                            Seemoremethod: () => Get.toNamed("/popproducts",
                                 arguments: ProductslistArguments(
                                     controller.listNewProducts)),
                           ),

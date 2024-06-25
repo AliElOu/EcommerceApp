@@ -44,7 +44,7 @@ class CartController extends GetxController {
     statusrequest = handlingData(response);
     if (statusrequest == StatusRequest.succes) {
       update();
-      Navigator.pushNamed(context, "successcheckout");
+      Get.toNamed("/successcheckout");
       cartList.clear();
     } else if (statusrequest == StatusRequest.failure) {
       update();
@@ -102,16 +102,16 @@ class CartController extends GetxController {
                         "currency": "USD"
                       },
                   ],
-                  "shipping_address":  {
-                                    "recipient_name": prefs.getString("username"),
-                                    "line1": sa,
-                                    "line2": "",
-                                    "city": "A",
-                                    "country_code": "US",
-                                    "postal_code": "73301",
-                                    "phone": "+00000000",
-                                    "state": "A"
-                                  },
+                  "shipping_address": {
+                    "recipient_name": prefs.getString("username"),
+                    "line1": sa,
+                    "line2": "",
+                    "city": "A",
+                    "country_code": "US",
+                    "postal_code": "73301",
+                    "phone": "+00000000",
+                    "state": "A"
+                  },
                 }
               }
             ],

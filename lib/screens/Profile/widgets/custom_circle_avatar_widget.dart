@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 
 
 class CustomCircleAvatar extends StatelessWidget {
@@ -13,7 +14,7 @@ class CustomCircleAvatar extends StatelessWidget {
         width: 150,
         child: CircleAvatar(
           backgroundColor: const Color.fromARGB(255, 228, 228, 228),    
-          child: Image.asset("assets/images/user.png"),
+          child: Image.network("${AppLinks.images}user.png"),
         ));
   }
 }

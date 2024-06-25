@@ -18,15 +18,17 @@ class Customappbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const AppLogo(scale: 2.5,),
+          const AppLogo(
+            scale: 2.5,
+          ),
           const SizedBox(width: 10),
           GetBuilder<ProductPageController>(builder: (controller) {
             return CustomIconButton(
               iconPath:
                   "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Cart%20Icon.svg",
-              onPressMethod: () => Navigator.pushNamed(context, "cart"),
+              onPressMethod: () => Get.toNamed("/cart"),
             );
-          }),        
+          }),
         ],
       ),
     );

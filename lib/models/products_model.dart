@@ -1,7 +1,7 @@
 class ProductsModel {
   final String name, description, image;
-  final double price, rating;
-  final int id, quantity;
+  final double rating;
+  final int price, id, quantity;
   bool isFavorit;
 
   ProductsModel({
@@ -19,27 +19,27 @@ class ProductsModel {
 
   factory ProductsModel.fromJson(json) {
     return ProductsModel(
-      id: int.parse(json['id_product']),
+      id: (json['id_product']),
       name: json['name'],
       image: json['image'],
       description: json['description'],
-      isFavorit: json['isFavorit'] == "1" ? true : false,
-      price: double.parse(json['price']),
+      isFavorit: json['isFavorit'] == 1 ? true : false,
+      price: (json['price']),
       rating: double.parse(json['rating']),
-      quantity: int.parse(json['quantity']),
+      quantity: (json['quantity']),
     );
   }
 
   factory ProductsModel.fromJson2(json) {
     return ProductsModel(
-      id: int.parse(json['id_product']),
+      id: (json['id_product']),
       name: json['name'],
       image: json['image'],
       description: json['description'],
       isFavorit: json['isFavorit'] == "1" ? true : false,
-      price: double.parse(json['price']),
+      price: (json['price']),
       rating: double.parse(json['rating']),
-      quantity: int.parse(json['product_quantity']),
+      quantity: (json['product_quantity']),
     );
   }
 }

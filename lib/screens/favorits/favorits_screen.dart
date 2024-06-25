@@ -19,29 +19,30 @@ class FavoritsScreen extends StatelessWidget {
     RefreshController refreshController1 =
         RefreshController(initialRefresh: true);
     Get.put(FavoritsListController(userid: prefs.getString("id")!));
-    return GetBuilder<FavoritsListController>(
-      builder: (controller) {
-        return SmartRefresher(
-          controller: refreshController1 ,
+    return GetBuilder<FavoritsListController>(builder: (controller) {
+      return SmartRefresher(
+        controller: refreshController1,
         onRefresh: () {
-              controller.handleRefresh(refreshController1);
-            },
-          child: Scaffold(
-            appBar: AppBar(
-        toolbarHeight: 100,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        title: const Header(title: "Favoris"),
-      ),
-              body: HandlignDataView(
-                statusrequest:controller.statusrequest ,
-                  widget: ProductsListWidget(
-                      productslist: controller.favoritsList,
-                      )),
-                      bottomNavigationBar: const  CustomNavbar(currentPage: MenuState.favorite,),),
-        );
-      }
-    );
+          controller.handleRefresh(refreshController1);
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: 100,
+            shadowColor: Colors.transparent,
+            backgroundColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+            title: const Header(title: "Favoris"),
+          ),
+          body: HandlignDataView(
+              statusrequest: controller.statusrequest,
+              widget: ProductsListWidget(
+                productslist: controller.favoritsList,
+              )),
+          bottomNavigationBar: const CustomNavbar(
+            currentPage: MenuState.favorite,
+          ),
+        ),
+      );
+    });
   }
 }

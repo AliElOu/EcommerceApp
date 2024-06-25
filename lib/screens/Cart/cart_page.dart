@@ -25,7 +25,6 @@ class CartPage extends StatelessWidget {
           automaticallyImplyLeading: false,
           toolbarHeight: 100,
           title: const CustomAppBar(
-            
             title: "Votre Panier",
           )),
       body: SafeArea(
@@ -49,7 +48,7 @@ class CartPage extends StatelessWidget {
         onpressed: () {
           print("hi");
           if (cartList.isNotEmpty) {
-            Navigator.pushNamed(context, "checkout");
+            Get.toNamed("/checkout");
           }
         },
       ),

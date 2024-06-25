@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -45,7 +46,7 @@ class ProductDetails extends StatelessWidget {
                         style: const TextStyle(
                             fontSize: 22,
                             fontFamily: "os",
-                            color:Color(0xff52C560) ,
+                            color: PrimaryColor,
                             fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -54,7 +55,7 @@ class ProductDetails extends StatelessWidget {
                 const SizedBox(height: 10),
                 GestureDetector(
                   onTap: () {
-                    productController.toggleFavorite(products,context,false);
+                    productController.toggleFavorite(products, context, false);
                   },
                   child:
                       GetBuilder<ProductPageController>(builder: (controller) {

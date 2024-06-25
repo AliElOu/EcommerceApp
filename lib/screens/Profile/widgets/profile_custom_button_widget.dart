@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 
 class ProfileCustomButtonWidget extends StatelessWidget {
   const ProfileCustomButtonWidget({
@@ -35,7 +36,7 @@ class ProfileCustomButtonWidget extends StatelessWidget {
                 Icon(
                   icon,
                   size: 25,
-                  color: const Color(0xff52C560),
+                  color: PrimaryColor,
                 ),
                 Text(
                   text,

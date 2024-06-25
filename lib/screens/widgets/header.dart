@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Header extends StatelessWidget {
   final String title;
   const Header({
-    super.key, required this.title,
+    super.key,
+    required this.title,
   });
 
   @override
@@ -13,7 +15,7 @@ class Header extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Get.back();
           },
           child: const Icon(
             Icons.arrow_back_ios_new_rounded,
@@ -21,7 +23,7 @@ class Header extends StatelessWidget {
             color: Colors.grey,
           ),
         ),
-         Text(
+        Text(
           title,
           style: const TextStyle(
             fontSize: 20,

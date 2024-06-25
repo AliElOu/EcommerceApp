@@ -11,7 +11,7 @@ class CategoriesModel {
 
   factory CategoriesModel.fromJson(json) {
     return CategoriesModel(
-      id: int.parse(json['id_category']) ,
+      id: (json['id_category']) ,
       name: json['category'],
       image: json['image'],
     );

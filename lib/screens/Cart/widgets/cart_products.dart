@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -11,7 +13,8 @@ class CartProductsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductPageController productpagecontroller = Get.find<ProductPageController>();
+    ProductPageController productpagecontroller =
+        Get.find<ProductPageController>();
     return Column(
       children: List.generate(
         cartList.length,
@@ -34,8 +37,7 @@ class CartProductsList extends StatelessWidget {
               child: Row(
                 children: [
                   const Spacer(),
-                  SvgPicture.asset(
-                      "assets/icons/Trash.svg"),
+                  SvgPicture.asset("assets/icons/Trash.svg"),
                 ],
               ),
             ),
@@ -52,7 +54,7 @@ class CartProductsList extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       color: const Color(0xffEDEEF1),
                     ),
-                    child: Image.asset(cartList[index].product.image),
+                    child: Image.network("${AppLinks.images}${cartList[index].product.image}"),
                   ),
                   const SizedBox(width: 13),
                   Column(
@@ -77,7 +79,7 @@ class CartProductsList extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 height: 1.3,
-                                color: Color(0xff52C560)),
+                                color: PrimaryColor),
                           ),
                           const SizedBox(
                             width: 7,

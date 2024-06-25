@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
+import 'package:flutter_bootcamp/constants.dart';
+import 'package:flutter_bootcamp/main.dart';
+import 'package:get/get.dart';
 import '../widgets/app_logo.dart';
 
 class Onboardingscreen extends StatelessWidget {
@@ -17,8 +21,8 @@ class Onboardingscreen extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                Image.asset(
-                  "assets/images/splash_ilustration.png",
+                Image.network(
+                  "${AppLinks.images}splash_ilustration.png",
                   scale: 4,
                 ),
                 const SizedBox(
@@ -53,15 +57,16 @@ class Onboardingscreen extends StatelessWidget {
                   width: 400,
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      backgroundColor: const Color(0xff52C560),
+                      backgroundColor: PrimaryColor,
                       foregroundColor: const Color.fromARGB(255, 255, 255, 255),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                          'login', (Route<dynamic> route) => false);
+                      prefs.setInt("onboardingPassed", 1);
+                      Get.offAllNamed(
+                          '/login');
                     },
                     child: const Text(
                       'Commencer',
@@ -81,5 +86,3 @@ class Onboardingscreen extends StatelessWidget {
     );
   }
 }
-
-

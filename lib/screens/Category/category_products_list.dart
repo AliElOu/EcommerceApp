@@ -14,7 +14,6 @@ class CategorieProductsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     RefreshController refreshController1 =
         RefreshController(initialRefresh: true);
     final args = ModalRoute.of(context)!.settings.arguments
@@ -22,29 +21,28 @@ class CategorieProductsList extends StatelessWidget {
     String name = args.name;
     String id = args.id.toString();
 
-
     Get.put(CategoryProductsController());
 
     return GetBuilder<CategoryProductsController>(builder: (controller) {
       return SmartRefresher(
         controller: refreshController1,
         onRefresh: () {
-          controller.handleRefresh(refreshController1,id);
+          controller.handleRefresh(refreshController1, id);
         },
         child: Scaffold(
           appBar: AppBar(
-        toolbarHeight: 100,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        automaticallyImplyLeading: false,
-        title: Header(title: name),
-      ),
+            toolbarHeight: 100,
+            shadowColor: Colors.transparent,
+            backgroundColor: Colors.transparent,
+            automaticallyImplyLeading: false,
+            title: Header(title: name),
+          ),
           body: SafeArea(
             child: HandlignDataView(
               statusrequest: controller.statusrequest,
               widget: ProductsListWidget(
-                  productslist: controller.listCatProducts,
-                  ),
+                productslist: controller.listCatProducts,
+              ),
             ),
           ),
           bottomNavigationBar: const CustomNavbar(currentPage: MenuState.home),

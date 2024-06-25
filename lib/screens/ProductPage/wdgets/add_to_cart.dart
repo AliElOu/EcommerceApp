@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/product_page_controller.dart';
@@ -37,13 +38,13 @@ class AddToCart extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   foregroundColor: const Color.fromARGB(255, 216, 208, 208),
-                  backgroundColor: const Color.fromARGB(255, 49, 117, 57),
+                  backgroundColor:  PrimaryColorBold,
                 )
               : TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   foregroundColor: Colors.white,
-                  backgroundColor: const Color(0xff52C560)),
+                  backgroundColor: PrimaryColor),
           child: const Text("Ajouter au panier"),
           onPressed: () {
             controller.addToCart(products, isAlready, context);

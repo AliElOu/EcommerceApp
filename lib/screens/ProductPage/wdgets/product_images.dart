@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
 
@@ -23,8 +24,8 @@ class ProductImage extends StatelessWidget {
             child: 
                Hero(
                   tag: id,
-                  child: Image.asset(
-                    image,
+                  child: Image.network(
+                    "${AppLinks.images}${image}",
                   ))
            ),
        

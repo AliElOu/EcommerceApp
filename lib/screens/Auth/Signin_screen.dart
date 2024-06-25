@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:flutter_bootcamp/controllers/Auth/signin_controller.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -123,8 +124,7 @@ class SigninScreen extends StatelessWidget {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.pushNamed(
-                                      context, "forgetpassword");
+                                  Get.toNamed("/forgetpassword");
                                 },
                                 child: const Text(
                                   "Mot de passe oublié",
@@ -163,14 +163,14 @@ class SigninScreen extends StatelessWidget {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.pushNamed(context, 'register');
+                                  Get.toNamed('/register');
                                 },
                                 child: const Text(
                                   ' S\'enregistrer',
                                   style: TextStyle(
                                     fontFamily: 'op',
                                     fontWeight: FontWeight.w500,
-                                    color: Color(0xff52C560),
+                                    color: PrimaryColor,
                                     fontSize: 17,
                                   ),
                                 ),

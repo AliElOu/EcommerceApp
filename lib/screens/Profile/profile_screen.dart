@@ -6,6 +6,7 @@ import 'package:flutter_bootcamp/screens/Profile/widgets/profile_custom_button_w
 import 'package:flutter_bootcamp/screens/Profile/widgets/user_information_widget.dart';
 import 'package:flutter_bootcamp/screens/widgets/custom_navbar.dart';
 import 'package:flutter_bootcamp/screens/widgets/header.dart';
+import 'package:get/get.dart';
 
 import '../../main.dart';
 
@@ -68,7 +69,7 @@ class ProfilePage extends StatelessWidget {
               text: "Changer le mot de passe",
               icon: Icons.password_rounded,
               press: (() {
-                Navigator.pushNamed(context, 'changepass');
+                Get.toNamed('/changepass');
               }),
               horiz: 35,
             ),
@@ -76,7 +77,7 @@ class ProfilePage extends StatelessWidget {
               text: "Commandes historique",
               icon: Icons.history_rounded,
               press: (() {
-                Navigator.pushNamed(context, 'history');
+                Get.toNamed('/history');
               }),
               horiz: 35,
             ),
@@ -97,8 +98,8 @@ class ProfilePage extends StatelessWidget {
                   btnCancelColor: Colors.blue,
                   btnOkOnPress: () {
                     prefs.clear();
-                    Navigator.of(context)
-                        .pushNamedAndRemoveUntil('login', (route) => false);
+                    prefs.setInt("onboardingPassed", 1);
+                    Get.offAllNamed('/login');
                   },
                 ).show();
               }),

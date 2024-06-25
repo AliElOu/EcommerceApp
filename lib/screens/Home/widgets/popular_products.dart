@@ -29,7 +29,7 @@ class HomeProductsList extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           height: 220,
-          child: ListView.builder(
+          child: ListView.builder( 
             itemCount: homecontroller.listL,
             padding: const EdgeInsets.symmetric(horizontal: 18),
             physics: const BouncingScrollPhysics(),

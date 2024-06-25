@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 import 'package:flutter_bootcamp/screens/Auth/widgets/custom_button.dart';
+import 'package:get/get.dart';
 
 class SuccessCheckoutScreen extends StatelessWidget {
   const SuccessCheckoutScreen({super.key});
@@ -13,30 +15,31 @@ class SuccessCheckoutScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 60,vertical: 30),
-                child: Image.asset("assets/images/logo.png"),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 60, vertical: 30),
+                child: Image.network("${AppLinks.images}logo.png"),
               ),
               const SizedBox(
-                height: 100,
+                height: 50,
               ),
-              Image.asset("assets/images/order_success_ilustration.png"),
+              Image.network("${AppLinks.images}order_success_ilustration.png"),
               const SizedBox(
                 height: 25,
               ),
               const Text(
-                  "Yeay, ta commande est passé avec succes",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontFamily: "os",
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.center,
+                "Yeay, ta commande est passé avec succes",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontFamily: "os",
+                  fontWeight: FontWeight.w600,
                 ),
-                const SizedBox(
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
                 height: 8,
               ),
-               const Text(
+              const Text(
                 "Vous pouvez voir ses details à votre historique de commandes",
                 style: TextStyle(
                   color: Color.fromARGB(255, 133, 133, 133),
@@ -46,13 +49,13 @@ class SuccessCheckoutScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: 80,
+                height: 20,
               ),
               CustomButton(
-                text: "Retour à l'accueil",
-                onpressed: () => Navigator.pushNamedAndRemoveUntil(
-                    context, "home", (route) => false),
-              )
+                  text: "Retour à l'accueil",
+                  onpressed: () => Get.offAll(
+                        "/home",
+                      ))
             ],
           ),
         ),

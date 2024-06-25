@@ -52,9 +52,9 @@ class SignInController extends GetxController {
           prefs.setString("is_verified", "${data[0]["is_verified"]}");
           data.clear();
           update();
-          Navigator.pushNamedAndRemoveUntil(context, "home", (route) => false);
+          Get.offAllNamed("/home");
         } else {
-          Navigator.pushNamed(context, "verifyaccount",
+          Get.to("/verifyaccount",
               arguments: OTPverificationArguments(email.text));
         }
       } else if (statusrequest == StatusRequest.failure) {

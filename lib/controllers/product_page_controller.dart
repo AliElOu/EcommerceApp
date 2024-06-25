@@ -71,7 +71,6 @@ class ProductPageController extends GetxController {
     update();
   }
 
-
   void incrementQuantity(quant) {
     if (selectedQuantity < quant) {
       selectedQuantity++;
@@ -91,13 +90,11 @@ class ProductPageController extends GetxController {
     update();
   }
 
-  
-
   void addToCart(ProductsModel products, bool isAlready, context) {
     if (selectedQuantity != 0 && !isAlready) {
       cartList.add(CartModel(product: products, quantity: selectedQuantity));
       update();
-      Navigator.pop(context);
+      Get.back();
     }
   }
 
@@ -105,6 +102,4 @@ class ProductPageController extends GetxController {
     cartList.remove(cl);
     update();
   }
-
- 
 }

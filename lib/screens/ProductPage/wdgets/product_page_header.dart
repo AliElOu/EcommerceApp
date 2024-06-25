@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProductPageHeader extends StatelessWidget {
   const ProductPageHeader({
@@ -14,7 +15,7 @@ class ProductPageHeader extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pop(context);
+              Get.back();
             },
             child: Container(
                 height: 40,
@@ -25,7 +26,10 @@ class ProductPageHeader extends StatelessWidget {
                 ),
                 child: const Icon(Icons.arrow_back_ios_new_rounded, size: 17)),
           ),
-          const Icon(Icons.data_array,color: Colors.transparent,),
+          const Icon(
+            Icons.data_array,
+            color: Colors.transparent,
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/profile/order_history_products_controller.dart';
@@ -42,8 +43,8 @@ class OrderProductsListWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       color: const Color(0xffEDEEF1),
                     ),
-                    child: Image.asset(ordershistoryproductscontroller
-                        .productsList[index].image),
+                    child: Image.network(
+                        "${AppLinks.images}${ordershistoryproductscontroller.productsList[index].image}"),
                   ),
                   const SizedBox(width: 13),
                   Column(

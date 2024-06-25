@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../../enums/menu_state.dart';
 
 class CustomNavbar extends StatelessWidget {
@@ -28,15 +30,15 @@ class CustomNavbar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "home");
+                  Get.toNamed("/home");
                 },
                 icon: currentPage == MenuState.home
                     ? SvgPicture.asset(
                         'assets/icons/shopicon.svg',
-                        color: const Color(0xff52C560),
+                        color: PrimaryColor,
                       )
                     : SvgPicture.asset(
-                      'assets/icons/shopicon.svg',
+                        'assets/icons/shopicon.svg',
                         color: Colors.grey,
                       ),
                 hoverColor: Colors.transparent,
@@ -49,7 +51,7 @@ class CustomNavbar extends StatelessWidget {
                   height: 3,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xff52C560),
+                    color: PrimaryColor,
                   ),
                 )
             ],
@@ -60,12 +62,12 @@ class CustomNavbar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "favorits");
+                  Get.toNamed("/favorits");
                 },
                 icon: currentPage == MenuState.favorite
                     ? SvgPicture.asset(
                         "assets/icons/hearticon.svg",
-                        color: const Color(0xff52C560),
+                        color: PrimaryColor,
                       )
                     : SvgPicture.asset(
                         "assets/icons/hearticon.svg",
@@ -80,7 +82,7 @@ class CustomNavbar extends StatelessWidget {
                   height: 3,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xff52C560),
+                    color: PrimaryColor,
                   ),
                 )
             ],
@@ -91,15 +93,14 @@ class CustomNavbar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "profile");
+                  Get.toNamed("/profile");
                 },
                 icon: currentPage == MenuState.profile
                     ? SvgPicture.asset(
                         "assets/icons/usericon.svg",
-                        color: const Color(0xff52C560),
+                        color: PrimaryColor,
                       )
-                    : SvgPicture.asset(
-                        "assets/icons/usericon.svg"),
+                    : SvgPicture.asset("assets/icons/usericon.svg"),
                 hoverColor: Colors.transparent,
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
@@ -110,7 +111,7 @@ class CustomNavbar extends StatelessWidget {
                   height: 3,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xff52C560),
+                    color: PrimaryColor,
                   ),
                 )
             ],

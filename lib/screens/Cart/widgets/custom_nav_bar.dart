@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
 
@@ -68,14 +69,14 @@ class CustomNavBar extends StatelessWidget {
                             foregroundColor:
                                 const Color.fromARGB(255, 216, 208, 208),
                             backgroundColor:
-                                const Color.fromARGB(255, 49, 117, 57))
+                                 PrimaryColorBold)
                         : TextButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 55, vertical: 20),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             foregroundColor: Colors.white,
-                            backgroundColor: const Color(0xff52C560)),
+                            backgroundColor: PrimaryColor),
                     onPressed: onpressed,
                     child: Text(
                       btnText,
@@ -96,14 +97,14 @@ class CustomNavBar extends StatelessWidget {
                             foregroundColor:
                                 const Color.fromARGB(255, 216, 208, 208),
                             backgroundColor:
-                                const Color.fromARGB(255, 49, 117, 57))
+                                 PrimaryColorBold)
                         : TextButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 55, vertical: 20),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             foregroundColor: Colors.white,
-                            backgroundColor: const Color(0xff52C560)),
+                            backgroundColor: PrimaryColor),
                     onPressed: onpressed,
                     child: Text(
                       btnText,

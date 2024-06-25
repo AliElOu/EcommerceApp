@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
 
@@ -56,7 +57,7 @@ class expandedTextWidget extends StatelessWidget {
                 child: Text(
                   "Voir ${productController.isExpanded ? "moins de Details <" : "plus de Details >"}",
                   style: const TextStyle(
-                      color: Color(0xff52C560),
+                      color: PrimaryColor,
                       fontSize: 14,
                       fontFamily: "os",
                       fontWeight: FontWeight.bold),

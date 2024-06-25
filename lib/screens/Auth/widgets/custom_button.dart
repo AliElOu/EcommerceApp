@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onpressed;
   const CustomButton({
-    super.key, required this.text, required this.onpressed,
+    super.key,
+    required this.text,
+    required this.onpressed,
   });
 
   @override
@@ -12,7 +15,7 @@ class CustomButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         foregroundColor: const Color.fromARGB(209, 255, 255, 255),
-        backgroundColor: const Color(0xff52C560),
+        backgroundColor: PrimaryColor,
         padding: const EdgeInsets.symmetric(
           vertical: 20,
           horizontal: 80,
@@ -21,8 +24,10 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
         ),
       ),
-      onPressed: () { onpressed() ;},
-      child:  Text(
+      onPressed: () {
+        onpressed();
+      },
+      child: Text(
         text,
         style: const TextStyle(
           fontSize: 16,

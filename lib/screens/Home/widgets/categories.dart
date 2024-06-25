@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../models/categories_model.dart';
 import '../../Category/category_products_list.dart';
 import 'categories_icon_button.dart';
@@ -36,7 +37,10 @@ class Categories extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, "category",arguments: CategorieProductsArguments(categorieslist[index].name,categorieslist[index].id)),
+                    onTap: () => Get.toNamed("/category",
+                        arguments: CategorieProductsArguments(
+                            categorieslist[index].name,
+                            categorieslist[index].id)),
                     child: CustomCategoryIconButton(
                         iconPath: categorieslist[index].image,
                         title: categorieslist[index].name),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 
 class CustomCategoryIconButton extends StatelessWidget {
   final String iconPath;
@@ -19,7 +20,7 @@ class CustomCategoryIconButton extends StatelessWidget {
               height: 68,
               width: 68,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-              child: Image.asset(iconPath)),
+              child: Image.network("${AppLinks.images}$iconPath")),
           const SizedBox(height: 8),
           Text(
             title,

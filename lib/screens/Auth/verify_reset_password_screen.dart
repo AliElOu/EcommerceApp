@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:flutter_bootcamp/screens/Auth/widgets/copyright_text.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
@@ -72,7 +73,7 @@ class VerifyResetPasswordScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                           numberOfFields: 5,
                           showFieldAsBox: true,
-                          focusedBorderColor: const Color(0xff52C560),
+                          focusedBorderColor: PrimaryColor,
                           textStyle:
                               TextStyle(color: Colors.black.withOpacity(.8)),
                           onSubmit: (value) {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
+import 'package:flutter_bootcamp/constants.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -11,11 +13,13 @@ class ProductsList extends StatelessWidget {
   final String tag;
   final double height;
   final double width;
-  
+
   const ProductsList({
     required this.products,
     required this.tag,
-    super.key, required this.height, required this.width,
+    super.key,
+    required this.height,
+    required this.width,
   });
 
   @override
@@ -25,8 +29,8 @@ class ProductsList extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, "product",
-                arguments: ProductPageArguments(products,mytag));
+            Get.toNamed("/product",
+                arguments: ProductPageArguments(products, mytag));
           },
           child: Container(
             height: height,
@@ -39,7 +43,8 @@ class ProductsList extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Hero(
-                  tag: mytag, child: Image.asset(products.image)),
+                  tag: mytag,
+                  child: Image.network("${AppLinks.images}${products.image}")),
             ),
           ),
         ),
@@ -70,35 +75,36 @@ class ProductsList extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                           height: 1.3,
-                          color: Color(0xff52C560)),
+                          color: PrimaryColor),
                     ),
-                    GetBuilder<ProductPageController>(builder: (controller) {
-                      return Container(
-                        height: 28,
-                        width: 28,
-                        decoration: BoxDecoration(
-                          color: products.isFavorit
-                              ? const Color.fromARGB(38, 158, 87, 28)
-                              : const Color.fromARGB(31, 158, 158, 158),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: IconButton(
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          onPressed: () {
-                            controller.toggleFavorite(products,context);
-                          },
-                          icon: products.isFavorit
-                              ? SvgPicture.network(
-                                  "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon_2.svg",
-                                  color: Colors.red)
-                              : SvgPicture.network(
-                                  "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon_2.svg"),
-                          color: Colors.grey,
-                        ),
-                      );
-                    })
+                    GetBuilder<ProductPageController>(
+                        builder: (controller) {
+                          return Container(
+                            height: 28,
+                            width: 28,
+                            decoration: BoxDecoration(
+                              color: products.isFavorit
+                                  ? const Color.fromARGB(38, 158, 87, 28)
+                                  : const Color.fromARGB(31, 158, 158, 158),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: IconButton(
+                              highlightColor: Colors.transparent,
+                              splashColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              onPressed: () {
+                                controller.toggleFavorite(products, context);
+                              },
+                              icon: products.isFavorit
+                                  ? SvgPicture.network(
+                                      "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon_2.svg",
+                                      color: Colors.red)
+                                  : SvgPicture.network(
+                                      "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon_2.svg"),
+                              color: Colors.grey,
+                            ),
+                          );
+                        })
                   ],
                 ),
               ],

@@ -37,7 +37,7 @@ class ChangePasswordController extends GetxController {
           title: 'Succes',
           desc: 'Votre mot de passe est modifié avec succes',
           btnOkOnPress: () {
-            Navigator.pop(context);
+            Get.back();
           },
         ).show();
       }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/api_links.dart';
 
 class EmptyCartWidget extends StatelessWidget {
   const EmptyCartWidget({
@@ -15,7 +16,7 @@ class EmptyCartWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/empty_cart_ilustration.png"),
+            Image.network("${AppLinks.images}empty_cart_ilustration.png"),
             const SizedBox(
               height: 25,
             ),
