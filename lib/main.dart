@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/controllers/choose_language_controller.dart';
+import 'package:flutter_bootcamp/core/local/local.dart';
 import 'package:flutter_bootcamp/routes.dart';
+import 'package:flutter_bootcamp/core/services/setting_services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get/get.dart';
 
-late SharedPreferences prefs;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  prefs = await SharedPreferences.getInstance();
-  print(prefs.getInt("onboardingPassed"));
+  await initialServices();
   runApp(const MyApp());
+}
+
+Future initialServices() async {
+  await Get.putAsync(() => SettingServices().init());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,6 +21,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ChooseLanguageController controller = Get.put(ChooseLanguageController());
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -28,8 +33,10 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.green,
           ),
-          initialRoute: "/onboarding",
-          getPages: routess,
+          initialRoute: "/languages",
+          locale: controller.intialLang,
+          translations: MyLocal(),
+          getPages: routes,
         );
       },
     );

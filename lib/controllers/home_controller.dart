@@ -1,6 +1,7 @@
 import 'package:flutter_bootcamp/core/classes/crud.dart';
 import 'package:flutter_bootcamp/enums/status_request.dart';
 import 'package:flutter_bootcamp/remote/home_data.dart';
+import 'package:flutter_bootcamp/core/services/setting_services.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -10,6 +11,9 @@ import '../models/categories_model.dart';
 import '../models/products_model.dart';
 
 class HomeController extends GetxController {
+
+  SettingServices c = Get.find();
+
   Crud crud = Crud();
   late HomeData homeData = HomeData(crud);
 
@@ -20,7 +24,7 @@ class HomeController extends GetxController {
   late int listL;
   getData() async {
     statusRequest = StatusRequest.loading;
-    var response = await homeData.getData(prefs.getString("id")!);
+    var response = await homeData.getData(c.prefs.getString("id")!);
     statusRequest = handlingData(response);
 
     if (statusRequest == StatusRequest.succes) {

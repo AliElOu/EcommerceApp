@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/enums/status_request.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../screens/widgets/trouble_widget.dart';
+import '../../views/widgets/trouble_widget.dart';
 
 class HandlignDataView extends StatelessWidget {
   final StatusRequest? statusrequest;
@@ -14,8 +14,6 @@ class HandlignDataView extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    double Dheight = MediaQuery.of(context).size.height;
-    double Dwidth = MediaQuery.of(context).size.width;
     return statusrequest == StatusRequest.loading
         ? SizedBox(
             child: Center(

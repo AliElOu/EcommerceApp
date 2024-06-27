@@ -1,16 +1,19 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/core/services/setting_services.dart';
 import 'package:flutter_paypal/flutter_paypal.dart';
 import 'package:get/get.dart';
 
 import '../core/classes/crud.dart';
 import '../core/functions/handling_data.dart';
 import '../enums/status_request.dart';
-import '../main.dart';
 import '../models/cart_model.dart';
 import '../remote/cart_data.dart';
 
 class CartController extends GetxController {
+
+  SettingServices c = Get.find();
+
   int selectedPayment = 0;
   int selectedQuantity = 0;
   bool isEditable = true;
@@ -18,6 +21,7 @@ class CartController extends GetxController {
   StatusRequest? statusrequest;
   Crud crud = Crud();
   late CartData cartdata = CartData(crud);
+
 
   double getTotal() {
     double total = 0;
@@ -103,7 +107,7 @@ class CartController extends GetxController {
                       },
                   ],
                   "shipping_address": {
-                    "recipient_name": prefs.getString("username"),
+                    "recipient_name": c.prefs.getString("username"),
                     "line1": sa,
                     "line2": "",
                     "city": "A",

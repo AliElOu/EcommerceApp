@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import '../../core/functions/handling_data.dart';
 import '../../remote/Auth/signup_data.dart';
-import '../../screens/Auth/verify_reset_password_screen.dart';
+import '../../views/Auth/verify_reset_password_screen.dart';
 
 class SignUpController extends GetxController {
   SignUpController(

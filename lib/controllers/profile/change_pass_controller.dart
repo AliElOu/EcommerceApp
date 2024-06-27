@@ -4,6 +4,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/core/classes/crud.dart';
 import 'package:flutter_bootcamp/enums/status_request.dart';
+import 'package:flutter_bootcamp/core/services/setting_services.dart';
 import 'package:get/get.dart';
 
 import '../../../core/functions/handling_data.dart';
@@ -12,6 +13,8 @@ import '../../main.dart';
 
 class ChangePasswordController extends GetxController {
   ChangePasswordController({required this.key});
+  
+  SettingServices c = Get.find();
 
   Crud crud = Crud();
   late ResetPasswordData resetpassworddata = ResetPasswordData(crud);
@@ -28,7 +31,7 @@ class ChangePasswordController extends GetxController {
       statusrequest = handlingData(response);
       if (statusrequest == StatusRequest.succes) {
         String pass = md5.convert(utf8.encode(password)).toString();
-        prefs.setString('pass', pass);
+        c.prefs.setString('pass', pass);
         update();
         AwesomeDialog(
           context: context,

@@ -1,4 +1,4 @@
-import 'package:flutter_bootcamp/api_links.dart';
+import 'package:flutter_bootcamp/core/constants/api_links.dart';
 import 'package:flutter_bootcamp/core/classes/crud.dart';
 
 class VerifyResetPasswordData {
