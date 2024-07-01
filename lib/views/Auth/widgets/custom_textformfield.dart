@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomTextFormField extends StatelessWidget {
   final String hinttext;
   final String labeltext;
-  final IconData suffixicon;
+  final IconData? suffixicon;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final bool isObscure;
@@ -15,7 +15,7 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hinttext,
     required this.labeltext,
-    required this.suffixicon, required this.controller,  this.validator, required this.isObscure, required this.keyboardtype,
+    this.suffixicon, required this.controller,  this.validator, required this.isObscure, required this.keyboardtype,
   });
 
   @override
@@ -40,6 +40,7 @@ class CustomTextFormField extends StatelessWidget {
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
+        
         suffixIcon:  Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Icon(suffixicon),

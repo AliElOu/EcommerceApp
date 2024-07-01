@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
 import 'package:get/get.dart';
 
-import '../../../controllers/cart_controller.dart';
 import '../../widgets/app_logo.dart';
 import 'custom_icon_button.dart';
 
@@ -19,13 +18,16 @@ class Customappbar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const AppLogo(
-            scale: 2.5,
+            scale: 2.8,
           ),
           const SizedBox(width: 10),
+          CustomIconButton(
+              iconPath: "assets/icons/chat.svg",
+              onPressMethod: (() => Get.toNamed("/chat"))),
           GetBuilder<ProductPageController>(builder: (controller) {
             return CustomIconButton(
               iconPath:
-                  "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Cart%20Icon.svg",
+                  "assets/icons/carticon.svg",
               onPressMethod: () => Get.toNamed("/cart"),
             );
           }),

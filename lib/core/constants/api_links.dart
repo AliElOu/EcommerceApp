@@ -1,5 +1,5 @@
 class AppLinks {
-  static const String domaine = "http://192.168.1.122";
+  static const String domaine = "http://192.168.1.20";
   static const String server = "$domaine/Ecommerce/Backend";
   static const String auth = "Auth";
   static const String home = "$server/home.php";

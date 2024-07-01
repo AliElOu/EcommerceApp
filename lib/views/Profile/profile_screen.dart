@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/controllers/choose_language_controller.dart';
 import 'package:flutter_bootcamp/enums/menu_state.dart';
 import 'package:flutter_bootcamp/views/Profile/widgets/custom_circle_avatar_widget.dart';
 import 'package:flutter_bootcamp/views/Profile/widgets/profile_custom_button_widget.dart';
@@ -17,7 +18,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingServices c = Get.find();
-
+    ChooseLanguageController c2 = Get.find();
     return Scaffold(
       appBar: AppBar(
           toolbarHeight: 100,
@@ -32,11 +33,11 @@ class ProfilePage extends StatelessWidget {
           children: [
             const Center(child: CustomCircleAvatar()),
             const SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 40),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   UserInformationWidget(
                     title: "Nom d'utilisateur",
                     info: 'username',
@@ -102,6 +103,7 @@ class ProfilePage extends StatelessWidget {
                   btnOkOnPress: () {
                     c.prefs.clear();
                     c.prefs.setInt("onboardingPassed", 1);
+                    c.prefs.setString("lang", c2.intialLang!.languageCode);
                     Get.offAllNamed('/login');
                   },
                 ).show();

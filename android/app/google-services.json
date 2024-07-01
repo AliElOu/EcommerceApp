@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "78334952504",
+    "project_id": "e-com-d6781",
+    "storage_bucket": "e-com-d6781.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78334952504:android:15d63df5eeda7bba71d2cd",
+        "android_client_info": {
+          "package_name": "com.example.flutter_bootcamp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFxPM_t5hz8gmxXjTQgm_iAd5gUplQoUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

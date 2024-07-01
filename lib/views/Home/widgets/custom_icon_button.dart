@@ -29,24 +29,24 @@ class CustomIconButton extends StatelessWidget {
             onPressed: () {
               onPressMethod();
             },
-            icon: SvgPicture.network(iconPath),
+            icon: SvgPicture.asset(iconPath),
             color: Colors.grey,
           ),
         ),
         if (cartList.isNotEmpty)
-        Container(
-          alignment: Alignment.center,
-          width: 15,
-          height: 15,
-          decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.red),
-          child: Text(
-            cartList.length.toString(),
-            style: const TextStyle(color: Colors.white,fontSize: 8,fontFamily: "ubuntu"),
-          ),
-        )
+          Container(
+            alignment: Alignment.center,
+            width: 15,
+            height: 15,
+            decoration:
+                const BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+            child: Text(
+              cartList.length.toString(),
+              style: const TextStyle(
+                  color: Colors.white, fontSize: 8, fontFamily: "ubuntu"),
+            ),
+          )
       ],
     );
   }
 }
-
-

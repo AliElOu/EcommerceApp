@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 SettingServices c = Get.find();
 
 class ChooseLanguageController extends GetxController {
-
-  Locale? intialLang = c.prefs.getString("lang") == null ? Get.deviceLocale : Locale(c.prefs.getString("lang")!);
+  Locale? intialLang = c.prefs.getString("lang") == null
+      ? Get.deviceLocale
+      : Locale(c.prefs.getString("lang")!);
   void changeLang(String codeLang) {
     Locale currentLang = Locale(codeLang);
     c.prefs.setString("lang", codeLang);

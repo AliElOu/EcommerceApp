@@ -1,3 +1,4 @@
+import 'package:flutter_bootcamp/Views/Chat/chat.dart';
 import 'package:flutter_bootcamp/core/middlewares/auth_middleware.dart';
 import 'package:flutter_bootcamp/core/middlewares/choose_language_middleware.dart';
 import 'package:flutter_bootcamp/core/middlewares/onboarding_middleware.dart';
@@ -47,6 +48,7 @@ final List<GetPage<dynamic>> routes = [
   GetPage(name: "/home", page: (() => const Homepage())),
   GetPage(name: "/product", page: (() => const ProductPage())),
   GetPage(name: "/cart", page: (() => const CartPage())),
+  GetPage(name: "/chat", page: (() => const Chat())),
   GetPage(name: "/checkout", page: (() => const CheckoutPage())),
   GetPage(name: "/favorits", page: (() => const FavoritsScreen())),
   GetPage(name: "/newproducts", page: (() => const NewProductsScreen())),

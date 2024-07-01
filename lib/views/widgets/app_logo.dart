@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bootcamp/core/constants/api_links.dart';
 
 class AppLogo extends StatelessWidget {
   final double scale;
@@ -10,8 +9,8 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      "${AppLinks.images}logo.png",
+    return Image.asset(
+      "assets/images/logo.png",
       scale: scale,
     );
   }

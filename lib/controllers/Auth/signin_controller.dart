@@ -6,7 +6,6 @@ import 'package:flutter_bootcamp/core/services/setting_services.dart';
 import 'package:get/get.dart';
 
 import '../../core/functions/handling_data.dart';
-import '../../main.dart';
 import '../../remote/Auth/signin_data.dart';
 import '../../views/Auth/verify_reset_password_screen.dart';
 

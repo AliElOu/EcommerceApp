@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootcamp/controllers/home_controller.dart';
 import 'package:flutter_bootcamp/core/constants/api_links.dart';
 import 'package:flutter_bootcamp/core/constants/colors.dart';
 import 'package:flutter_bootcamp/controllers/product_page_controller.dart';
+import 'package:flutter_bootcamp/enums/status_request.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -77,33 +79,49 @@ class ProductsList extends StatelessWidget {
                           height: 1.3,
                           color: AppColors.PrimaryColor),
                     ),
-                    GetBuilder<ProductPageController>(builder: (controller) {
-                      return Container(
-                        height: 28,
-                        width: 28,
-                        decoration: BoxDecoration(
-                          color: products.isFavorit
-                              ? const Color.fromARGB(38, 158, 87, 28)
-                              : const Color.fromARGB(31, 158, 158, 158),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: IconButton(
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          onPressed: () {
-                            controller.toggleFavorite(products, context);
-                          },
-                          icon: products.isFavorit
-                              ? SvgPicture.network(
-                                  "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon_2.svg",
-                                  color: Colors.red)
-                              : SvgPicture.network(
-                                  "https://raw.githubusercontent.com/GDG-Guelmim/flutter_bootcamp_2023_ecommerce_app/9d0471efd43ce3fa1fb59aec0abdfb005483f9b5/assets/icons/Heart%20Icon_2.svg"),
-                          color: Colors.grey,
-                        ),
-                      );
-                    })
+                    GetBuilder<HomeController>(
+                        id: "fav",
+                        builder: (controller) {
+                          return Container(
+                            height: 28,
+                            width: 28,
+                            decoration: BoxDecoration(
+                              color: products.isFavorit
+                                  ? const Color.fromARGB(38, 158, 87, 28)
+                                  : const Color.fromARGB(31, 158, 158, 158),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: ((controller.statusRequest3 ==
+                                        StatusRequest.loading) &&
+                                    controller.clickedProduct ==
+                                        products.id.toString())
+                                ? const Padding(
+                                    padding: EdgeInsets.all(9),
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : IconButton(
+                                    highlightColor: Colors.transparent,
+                                    splashColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    onPressed: () {
+                                      controller.toggleFavorite(
+                                          products, context);
+                                    },
+                                    icon: products.isFavorit
+                                        ? SvgPicture.asset(
+                                            "assets/icons/heartIcon2.svg",
+                                            width: 100,
+                                            height: 100,
+                                            color: Colors.red)
+                                        : SvgPicture.asset(
+                                            "assets/icons/heartIcon2.svg",
+                                            width: 100,
+                                            height: 100,
+                                          ),
+                                    color: Colors.grey,
+                                  ),
+                          );
+                        })
                   ],
                 ),
               ],
