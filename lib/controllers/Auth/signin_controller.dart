@@ -1,6 +1,8 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/core/classes/crud.dart';
+import 'package:flutter_bootcamp/core/functions/get_token.dart';
 import 'package:flutter_bootcamp/enums/status_request.dart';
 import 'package:flutter_bootcamp/core/services/setting_services.dart';
 import 'package:get/get.dart';
@@ -12,12 +14,12 @@ import '../../views/Auth/verify_reset_password_screen.dart';
 class SignInController extends GetxController {
   SignInController(
       {required this.email, required this.pass, required this.key});
-      
+
   SettingServices c = Get.find();
 
   Crud crud = Crud();
   late SignInData signindata = SignInData(crud);
-  
+
   StatusRequest? statusrequest;
 
   late GlobalKey<FormState> key;
@@ -32,6 +34,37 @@ class SignInController extends GetxController {
   void changeRememberMe() {
     isCheked = !isCheked;
     update(["rememberme"]);
+  }
+
+  saveToken() async {
+    CollectionReference collectionRef =
+        FirebaseFirestore.instance.collection("users");
+    QuerySnapshot querySnapshot = await collectionRef
+        .where("email", isEqualTo: email.text)
+        .limit(1)
+        .get();
+
+    if (querySnapshot.docs.isNotEmpty) {
+      DocumentSnapshot userDoc = querySnapshot.docs[0];
+      List<dynamic> tokens = List.from(userDoc["devices"]);
+      String newToken = await getDeviceToken();
+
+      if (!tokens.contains(newToken)) {
+        tokens.add(newToken);
+        await collectionRef.doc(userDoc.id).update(
+          {
+            'devices': tokens,
+          },
+        );
+      }
+    } else {
+      collectionRef.add(
+        {
+          'email': email.text,
+          'devices': [await getDeviceToken()],
+        },
+      );
+    }
   }
 
   login(context) async {
@@ -53,6 +86,7 @@ class SignInController extends GetxController {
           c.prefs.setString("pass", "${data[0]["password"]}");
           c.prefs.setString("is_verified", "${data[0]["is_verified"]}");
           data.clear();
+          await saveToken();
           update();
           Get.offAllNamed("/home");
         } else {

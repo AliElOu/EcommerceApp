@@ -6,56 +6,56 @@ import 'package:get/get.dart';
 class ChatController extends GetxController {
   SettingServices servicesController = Get.find();
 
-  late String? userId = servicesController.prefs.getString("id");
+  late String? username = servicesController.prefs.getString("username");
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   final msgController = TextEditingController();
   ScrollController scrollcontroller = ScrollController();
-  //List messages = [];
-  bool loading = false;
 
-  CollectionReference msgs = FirebaseFirestore.instance.collection("chat");
+  CollectionReference chats = FirebaseFirestore.instance.collection("chats");
+  late DocumentReference chatDoc = chats.doc(username);
+  late CollectionReference msgs = chatDoc.collection("messages");
+
   late Stream<QuerySnapshot> chatStream = FirebaseFirestore.instance
-      .collection("chat")
-      .where("userId", isEqualTo: userId)
+      .collection("chats")
+      .doc(username)
+      .collection("messages")
       .orderBy('createdAt')
       .snapshots();
 
-  /*getData() async {
-    loading = true;
-    QuerySnapshot data = await FirebaseFirestore.instance
-        .collection("chat")
-        .orderBy('createdAt')
-        .get();
-    messages.addAll(data.docs);
-    loading = false;
-  }*/
-
-  sendMsg() {
+  sendMsg() async {
     if (msgController.text.isNotEmpty) {
-      msgs.add(
-        {
-          "userId": userId,
+      await FirebaseFirestore.instance.runTransaction((transaction) async {
+        DocumentSnapshot chatSnapshot = await transaction.get(chatDoc);
+
+        if (!chatSnapshot.exists) {
+          transaction.set(chatDoc, {
+            'createdAt': FieldValue.serverTimestamp(),
+          });
+        }
+
+        transaction.set(msgs.doc(), {
           "sender": "user",
           "message": msgController.text,
           "createdAt": FieldValue.serverTimestamp(),
-        },
-      ).then(
-        (value) {
-          msgController.clear();
-          scrollcontroller.animateTo(
-            scrollcontroller.position.maxScrollExtent,
-            duration: const Duration(milliseconds: 10),
-            curve: Curves.easeOut,
-          );
-        },
-      );
-      scrollcontroller.animateTo(
-        scrollcontroller.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 10),
-        curve: Curves.easeOut,
-      );
+        });
+        msgController.clear();
+      });
     }
+  }
+
+  scrollToEnd() async {
+    scrollcontroller.animateTo(
+      scrollcontroller.position.maxScrollExtent,
+      duration: const Duration(milliseconds: 10),
+      curve: Curves.easeOut,
+    );
+    await Future.delayed(const Duration(milliseconds: 100));
+    scrollcontroller.animateTo(
+      scrollcontroller.position.maxScrollExtent,
+      duration: const Duration(milliseconds: 10),
+      curve: Curves.easeOut,
+    );
   }
 
   bool isMine(msg) {

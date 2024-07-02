@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/controllers/choose_language_controller.dart';
+import 'package:flutter_bootcamp/controllers/profile/sign_out_controller.dart';
 import 'package:flutter_bootcamp/enums/menu_state.dart';
 import 'package:flutter_bootcamp/views/Profile/widgets/custom_circle_avatar_widget.dart';
 import 'package:flutter_bootcamp/views/Profile/widgets/profile_custom_button_widget.dart';
@@ -17,8 +18,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SettingServices c = Get.find();
-    ChooseLanguageController c2 = Get.find();
+    SignOutController signoutcontroller = Get.put(SignOutController());
     return Scaffold(
       appBar: AppBar(
           toolbarHeight: 100,
@@ -101,10 +101,7 @@ class ProfilePage extends StatelessWidget {
                   btnOkColor: Colors.green,
                   btnCancelColor: Colors.blue,
                   btnOkOnPress: () {
-                    c.prefs.clear();
-                    c.prefs.setInt("onboardingPassed", 1);
-                    c.prefs.setString("lang", c2.intialLang!.languageCode);
-                    Get.offAllNamed('/login');
+                    signoutcontroller.signOut();
                   },
                 ).show();
               }),

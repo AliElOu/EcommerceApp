@@ -1,8 +1,10 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootcamp/core/classes/crud.dart';
+import 'package:flutter_bootcamp/core/functions/get_token.dart';
 import 'package:flutter_bootcamp/enums/status_request.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../core/functions/handling_data.dart';
 import '../../remote/Auth/signup_data.dart';

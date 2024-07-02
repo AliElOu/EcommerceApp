@@ -35,6 +35,9 @@ class Chat extends GetView<ChatController> {
                 if (snapshot.hasError) {
                   return const Text("HasError");
                 }
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  controller.scrollToEnd();
+                });
                 return Column(
                   children: [
                     Container(
